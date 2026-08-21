@@ -1,0 +1,25 @@
+<!-- @dsCard group="Colors" viewport="700x180" name="Brand themes" subtitle="Four white-label accent gradients — Blue · Green · Orange · Pink" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; padding: 22px; background: var(--bg); }
+  .row { display: flex; gap: 16px; }
+  .swatch { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+  .chip { height: 78px; border-radius: var(--radius-md); box-shadow: var(--shadow-card); }
+  .meta { display: flex; flex-direction: column; gap: 1px; }
+  .name { font-size: 14px; font-weight: 600; color: var(--fg-1); }
+  .sub { font-size: 12px; color: var(--fg-2); }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="swatch"><div class="chip" style="background: linear-gradient(180deg,#00C6FB,#005BEA)"></div><div class="meta"><span class="name">Blue · Pro</span><span class="sub">#00C6FB → #005BEA</span></div></div>
+    <div class="swatch"><div class="chip" style="background: linear-gradient(180deg,#34E89E,#0CA678)"></div><div class="meta"><span class="name">Green · Simple</span><span class="sub">#34E89E → #0CA678</span></div></div>
+    <div class="swatch"><div class="chip" style="background: linear-gradient(180deg,#FFC24B,#FB7A1A)"></div><div class="meta"><span class="name">Orange · Mini</span><span class="sub">#FFC24B → #FB7A1A</span></div></div>
+    <div class="swatch"><div class="chip" style="background: linear-gradient(180deg,#FF8CC8,#E5377E)"></div><div class="meta"><span class="name">Pink · Ad</span><span class="sub">#FF8CC8 → #E5377E</span></div></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+/* ============================================================
+   NativeMind — Ad-material tokens (z-depth / parallax staging)
+   Source of truth: vpnclient-v1.1.fig, pages Screens-AppStore,
+   Screens-Google-Play, Screens-PC. Values transcribed verbatim.
+   ============================================================ */
+
+:root {
+  /* ── Z-depth planes ───────────────────────────────────────────
+     Every promo frame is staged on five planes. An element's plane
+     decides its z-index, its shadow and whether it may cross the
+     frame edge. See guidelines/z-depth.card.html.                */
+  --ad-plane-bg: 0;        /* brand gradient — never crossed        */
+  --ad-plane-wedge: 1;   /* @kind other */     /* tilted white / 10% white slabs        */
+  --ad-plane-copy: 2;    /* @kind other */      /* eyebrow, headline, arrow              */
+  --ad-plane-device: 3;  /* @kind other */    /* phone / macbook — may leave the frame */
+  --ad-plane-front: 4;   /* @kind other */     /* pulled-forward accent — the payload   */
+
+  /* ── Tilts (exact matrices from the file): wedge −5°, device +15° ── */
+  --ad-tilt-wedge: matrix(0.996, -0.087, 0.087, 0.996, 0, 0); /* @kind other */
+  --ad-tilt-device: matrix(0.966, 0.259, -0.259, 0.966, 0, 0); /* @kind other */
+
+  /* ── Plane shadows ────────────────────────────────────────── */
+  /* Front plane, on a white/neutral ground (Figma verbatim). */
+  --ad-shadow-front: 0 3.606px 115.394px rgba(156, 178, 194, 0.1);
+  /* Front plane, on saturated brand ground — needs more separation. */
+  --ad-shadow-front-strong: 0 24px 80px rgba(8, 32, 64, 0.22);
+  /* Device plane. Deeper and lower: it sits further back but is heavy. */
+  --ad-shadow-device: 0 40px 90px rgba(0, 0, 0, 0.3);
+  /* App-icon tile inside a front-plane card. */
+  --ad-shadow-icon: 0 0 43.273px 7.212px rgba(0, 0, 0, 0.08);
+
+  /* ── Front-plane geometry ─────────────────────────────────── */
+  --ad-front-radius: 36.0606px;   /* pulled-forward card corner   */
+  --ad-front-pad: 50.485px;       /* its padding                  */
+  --ad-front-step: 208px;         /* vertical rhythm of a stack   */
+
+  /* ── Promo type scale (1290 px-wide canvas) ───────────────── */
+  --ad-headline: 130px;   /* weight 700, uppercase, line-height 100% */
+  --ad-eyebrow: 40px;     /* weight 600                              */
+  --ad-pill: 80px;        /* weight 600                              */
+  --ad-card-title: 61.303px; /* weight 400                           */
+}

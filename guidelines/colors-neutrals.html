@@ -1,0 +1,26 @@
+<!-- @dsCard group="Colors" viewport="700x170" name="Neutrals" subtitle="Page, surface, text & line ramp — light theme" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; padding: 22px; background: var(--bg); }
+  .grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 14px; }
+  .cell { display: flex; flex-direction: column; gap: 8px; }
+  .chip { height: 66px; border-radius: var(--radius-md); border: 1px solid var(--line); }
+  .name { font-size: 12px; font-weight: 600; color: var(--fg-1); }
+  .hex { font-size: 11px; color: var(--fg-2); }
+</style>
+</head>
+<body>
+  <div class="grid">
+    <div class="cell"><div class="chip" style="background:#F8F9FA"></div><span class="name">bg</span><span class="hex">#F8F9FA</span></div>
+    <div class="cell"><div class="chip" style="background:#FFFFFF"></div><span class="name">surface</span><span class="hex">#FFFFFF</span></div>
+    <div class="cell"><div class="chip" style="background:#EEF1F3"></div><span class="name">surface-2</span><span class="hex">#EEF1F3</span></div>
+    <div class="cell"><div class="chip" style="background:#303F49"></div><span class="name">fg-1</span><span class="hex">#303F49</span></div>
+    <div class="cell"><div class="chip" style="background:#B6B6B6"></div><span class="name">fg-2</span><span class="hex">#B6B6B6</span></div>
+    <div class="cell"><div class="chip" style="background:#E0E0E0"></div><span class="name">disabled</span><span class="hex">#E0E0E0</span></div>
+  </div>
+</body>
+</html>

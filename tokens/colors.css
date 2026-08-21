@@ -1,0 +1,122 @@
+/* ============================================================
+   NativeMind DS — Color tokens
+   ------------------------------------------------------------
+   Two layers:
+   1. A shared neutral + semantic foundation (identical across every
+      product and theme).
+   2. A swappable BRAND ACCENT layer. The VPN client ships as four
+      white-label color variants (Pro/Blue, Simple/Green, Mini/Orange,
+      Ad/Pink). Switch the active accent by setting [data-theme] on a
+      root container — the default (no attribute) is Blue / Pro.
+
+   Source of truth for Blue + neutrals: VPNclient-app & taxlien-app
+   lib/design/app_colors.dart. Green / Orange / Pink accents are
+   derived to match the Blue gradient's light->deep structure (the
+   per-color Figma source files were not machine-readable for exact
+   hex — see readme.md > CAVEATS).
+   ============================================================ */
+
+:root {
+  /* ── Brand accent (default = Blue / Pro) ─────────────────────── */
+  --brand-light: #00C6FB;          /* gradient top  / light accent */
+  --brand:       #005BEA;          /* gradient base / primary action */
+  --brand-gradient: linear-gradient(180deg, #00C6FB 0%, #005BEA 100%); /* @kind color */
+  --brand-gradient-soft: linear-gradient(180deg, #E6F8FF 0%, #E6EEFD 100%); /* @kind color */
+  --brand-glow: rgba(0, 91, 234, 0.18);     /* connect-button drop glow */
+  --brand-tint: rgba(0, 91, 234, 0.10);     /* selected-row / chip wash */
+
+  /* ── Neutrals (light) ────────────────────────────────────────── */
+  --bg:        #F8F9FA;           /* page background */
+  --surface:   #FFFFFF;           /* cards, tiles, bottom-nav */
+  --surface-2: #EEF1F3;           /* sunken wells, flag chip bg */
+  --fg-1:      #303F49;           /* primary text & icons */
+  --fg-2:      #B6B6B6;           /* muted, placeholder, secondary label */
+  --fg-3:      #A2A2A2;           /* off-state icon stroke */
+  --line:      rgba(156, 178, 194, 0.10); /* hairline divider / shadow tint */
+  --disabled:  #E0E0E0;           /* off-state circular button bg */
+
+  /* ── Neutrals (dark) ─────────────────────────────────────────── */
+  --bg-dark:        #0F1419;
+  --surface-dark:   #1A2129;
+  --surface-dark-2: #222B33;
+  --fg-1-dark:      #E7ECEF;
+  --fg-2-dark:      #8899A6;
+  --line-dark:      rgba(255, 255, 255, 0.08);
+  --switch-track-dark: #3A4750;
+
+  /* ── Semantic (shared by every product & theme) ──────────────── */
+  --success: #1FB67A;
+  --warning: #FFB020;
+  --danger:  #E5484D;
+  --info:    #005BEA;
+
+  /* Ping / latency scale — used on VPN server tiles. */
+  --ping-good: var(--success);   /* < 80 ms  */
+  --ping-mid:  var(--warning);   /* < 180 ms */
+  --ping-bad:  var(--danger);    /* >= 180 ms */
+
+  /* ── TaxLien domain extension ────────────────────────────────── */
+  /* Property lifecycle stage colors. */
+  --stage-pre:    #FFB020;   /* PRE-AUCTION */
+  --stage-listed: #005BEA;   /* LISTED      */
+  --stage-otc:    #00C6FB;   /* OTC         */
+  --stage-sold:   #B6B6B6;   /* SOLD        */
+  /* X-Ray insight tints. */
+  --xray-warn: #E5484D;      /* risk / warning  */
+  --xray-opp:  #1FB67A;      /* opportunity     */
+  --xray-eth:  #7B5BEA;      /* ethical note    */
+  --xray-info: #005BEA;      /* neutral info    */
+}
+
+/* ── Brand accent variants ─────────────────────────────────────── */
+/* Each just re-points the --brand-* group; everything downstream
+   (buttons, switches, gradients, glows) shifts together. */
+
+[data-theme="blue"] {           /* Pro */
+  --brand-light: #00C6FB;
+  --brand:       #005BEA;
+  --brand-gradient: linear-gradient(180deg, #00C6FB 0%, #005BEA 100%); /* @kind color */
+  --brand-gradient-soft: linear-gradient(180deg, #E6F8FF 0%, #E6EEFD 100%); /* @kind color */
+  --brand-glow: rgba(0, 91, 234, 0.18);
+  --brand-tint: rgba(0, 91, 234, 0.10);
+}
+
+[data-theme="green"] {          /* Simple */
+  --brand-light: #34E89E;
+  --brand:       #0CA678;
+  --brand-gradient: linear-gradient(180deg, #34E89E 0%, #0CA678 100%); /* @kind color */
+  --brand-gradient-soft: linear-gradient(180deg, #E6FBF2 0%, #E3F7EC 100%); /* @kind color */
+  --brand-glow: rgba(12, 166, 120, 0.20);
+  --brand-tint: rgba(12, 166, 120, 0.10);
+}
+
+[data-theme="orange"] {         /* Mini */
+  --brand-light: #FFC24B;
+  --brand:       #FB7A1A;
+  --brand-gradient: linear-gradient(180deg, #FFC24B 0%, #FB7A1A 100%); /* @kind color */
+  --brand-gradient-soft: linear-gradient(180deg, #FFF4E0 0%, #FFEAD3 100%); /* @kind color */
+  --brand-glow: rgba(251, 122, 26, 0.22);
+  --brand-tint: rgba(251, 122, 26, 0.10);
+}
+
+[data-theme="pink"] {           /* Ad */
+  --brand-light: #FF8CC8;
+  --brand:       #E5377E;
+  --brand-gradient: linear-gradient(180deg, #FF8CC8 0%, #E5377E 100%); /* @kind color */
+  --brand-gradient-soft: linear-gradient(180deg, #FFEAF4 0%, #FCE0EC 100%); /* @kind color */
+  --brand-glow: rgba(229, 55, 126, 0.22);
+  --brand-tint: rgba(229, 55, 126, 0.10);
+}
+
+/* ── Dark-mode neutral remap ───────────────────────────────────── */
+/* Opt in by setting [data-mode="dark"] alongside any [data-theme]. */
+[data-mode="dark"] {
+  --bg:        var(--bg-dark);
+  --surface:   var(--surface-dark);
+  --surface-2: var(--surface-dark-2);
+  --fg-1:      var(--fg-1-dark);
+  --fg-2:      var(--fg-2-dark);
+  --fg-3:      var(--fg-2-dark);
+  --line:      var(--line-dark);
+  --disabled:  #2A343D;
+}

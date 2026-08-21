@@ -1,0 +1,67 @@
+<!-- @dsCard group="VPN mobile" viewport="900x720" name="VPN app — interactive" subtitle="Connect · Servers · Apps · Settings, with live theme switching" -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>VPN Client — Mobile UI Kit</title>
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  html, body { margin: 0; height: 100%; }
+  body { background: var(--bg); display: flex; align-items: center; justify-content: center; gap: 48px; padding: 40px; box-sizing: border-box; }
+  .side { width: 220px; }
+  .side h1 { font-size: 22px; font-weight: 700; color: var(--fg-1); margin: 0 0 6px; }
+  .side p { font-size: 14px; color: var(--fg-2); line-height: 1.5; margin: 0 0 24px; }
+  .swatches { display: flex; gap: 10px; }
+  .sw { width: 44px; height: 44px; border-radius: 12px; border: 0; cursor: pointer; padding: 0; box-shadow: var(--shadow-card); }
+  .sw.on { outline: 3px solid var(--fg-1); outline-offset: 2px; }
+</style>
+</head>
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script type="text/babel" src="ios-frame.jsx"></script>
+  <script type="text/babel" src="components.jsx"></script>
+  <script type="text/babel" src="screens.jsx"></script>
+  <script type="text/babel">
+    const { useState } = React;
+    const THEMES = [["blue","Pro"],["green","Simple"],["orange","Mini"],["pink","Ad"]];
+    function App() {
+      const [tab, setTab] = useState("home");
+      const [conn, setConn] = useState("off");
+      const [server, setServer] = useState({ name: "Германия", sub: "Frankfurt", flag: "../../assets/icons/flag-de.svg", ping: 42 });
+      const [theme, setTheme] = useState("blue");
+      const [dark, setDark] = useState(false);
+      const screen =
+        tab === "home" ? <HomeScreen conn={conn} setConn={setConn} server={server}/> :
+        tab === "servers" ? <ServersScreen server={server} setServer={setServer}/> :
+        tab === "apps" ? <AppsScreen/> :
+        <SettingsScreen theme={theme} setTheme={setTheme} dark={dark} setDark={setDark}/>;
+      return (
+        <React.Fragment>
+          <div className="side">
+            <h1>VPN Client</h1>
+            <p>One white-label client, four accent themes. Tap a swatch or open Settings to switch live. Russian-first, calm-utility UI.</p>
+            <div className="swatches">
+              {THEMES.map(([id]) => (
+                <button key={id} className={"sw" + (theme===id?" on":"")} data-theme={id}
+                  onClick={() => setTheme(id)} style={{ background: "var(--brand-gradient)" }} aria-label={id}/>
+              ))}
+            </div>
+          </div>
+          <div data-theme={theme} data-mode={dark ? "dark" : "light"}>
+            <IOSFrame theme={theme}>
+              <div data-mode={dark ? "dark" : "light"} style={{ height: "100%" }}>
+                {screen}
+                <VTabBar active={tab} onTab={setTab}/>
+              </div>
+            </IOSFrame>
+          </div>
+        </React.Fragment>
+      );
+    }
+    ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+  </script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!-- @dsCard group="Web & Admin" viewport="1180x900" name="Icon set & emoji failover" subtitle="The GostSimBox .ico set is the icon system; emoji only stand in when a file cannot be served" -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+body{margin:0;padding:24px;background:var(--portal-bg);font-family:var(--portal-font);color:var(--portal-text);font-size:14px}
+h3{margin:0 0 4px;font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--portal-link)}
+.wrap{max-width:1120px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+.sheet{background:var(--portal-surface);padding:22px 24px;display:flex;flex-direction:column;gap:14px}
+.nav{display:flex;flex-wrap:wrap;gap:6px 24px}
+.nav a{color:var(--portal-text);text-decoration:none;font-size:15px}
+.nav a:hover{color:var(--portal-link-hover)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.gl{display:flex;gap:10px;align-items:center;background:var(--adm-bg);padding:7px 10px}
+.gl img{width:16px;height:16px;image-rendering:pixelated;flex:0 0 auto}
+.gl .fb{font-size:14px;line-height:1;width:16px;text-align:center;flex:0 0 auto;opacity:.55}
+.gl span{font-size:12px;color:var(--adm-fg);line-height:1.25}
+.gl em{display:block;font-style:normal;font-size:10px;color:var(--adm-fg-2);font-family:var(--adm-font-num)}
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:8px 26px;font-size:13px;line-height:1.55}
+.yes:before{content:"✔ ";color:#0CA678}
+.no:before{content:"✘ ";color:#E5484D}
+pre{margin:0;background:var(--adm-bg);padding:12px 14px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;line-height:1.6;overflow-x:auto;color:var(--adm-fg)}
+.legend{display:flex;gap:22px;font-size:12px;color:var(--adm-fg-2)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="sheet">
+<h3>Order of precedence</h3>
+<div style="font-size:13.5px;line-height:1.6;max-width:80ch">The <b>original GostSimBox icon</b> is the mark. It is individually drawn per state, so a dense table stays scannable — that is exactly what a generic set loses. An <b>emoji is the failover</b>: it renders only when the image cannot be served (no asset pipeline, plain-text log, mail body, or a missing file). Never the other way round, and never both at once.</div>
+<pre>&lt;img class="adm-ico" src="/imgs/state/simst/1.ico" alt="SIM ready" title="simst 1"
+     onerror="this.replaceWith(Object.assign(document.createElement('span'),
+              {className:'adm-ico',textContent:'✅',title:'simst 1'}))"&gt;
+
+.adm-ico{width:16px;height:16px;image-rendering:pixelated;display:inline-block;text-align:center}</pre>
+<div class="legend"><span>Column below: <b>icon</b> — the real file · <b>faded glyph</b> — its emoji failover</span><span>Full set: “Adminka icon set (GostSimBox)” card</span></div>
+</div>
+
+<div class="sheet">
+<h3>Radio, SIM and network state</h3>
+<div class="grid">
+<div class="gl"><img src="../assets/adminka/state/cfun/4.ico" alt=""><span class="fb">🟡</span><span>Radio off / booting<em>cfun 4</em></span></div>
+<div class="gl"><img src="../assets/adminka/state/cfun/6.ico" alt=""><span class="fb">🟢</span><span>Radio on<em>cfun 6</em></span></div>
+<div class="gl"><img src="../assets/adminka/state/-1.ico" alt=""><span class="fb">➖</span><span>Unknown<em>-1</em></span></div>
+<div class="gl"><img src="../assets/adminka/state/simst/1.ico" alt=""><span class="fb">✅</span><span>SIM ready<em>simst 1</em></span></div>
+<div class="gl"><img src="../assets/adminka/state/simst/0.ico" alt=""><span class="fb">🚫</span><span>No SIM<em>simst 0</em></span></div>
+<div class="gl"><img src="../assets/adminka/state/simst/4.ico" alt=""><span class="fb">🔒</span><span>PIN required<em>simst 4</em></span></div>
+<div class="gl"><img src="../assets/adminka/state/simst/16.ico" alt=""><span class="fb">🔑</span><span>PUK required<em>simst 16</em></span></div>
+<div class="gl"><img src="../assets/adminka/state/simst/255.ico" alt=""><span class="fb">⛔</span><span>SIM blocked<em>simst 255</em></span></div>
+<div class="gl"><img src="../assets/adminka/state/srvst/1.ico" alt=""><span class="fb">📶</span><span>Registered<em>srvst 1</em></span></div>
+<div class="gl"><img src="../assets/adminka/state/srvst/0.ico" alt=""><span class="fb">🔍</span><span>Searching<em>srvst 0</em></span></div>
+<div class="gl"><img src="../assets/adminka/state/srvst/2.ico" alt=""><span class="fb">🚷</span><span>Denied<em>srvst 2</em></span></div>
+<div class="gl"><img src="../assets/adminka/state/srvst/112.ico" alt=""><span class="fb">🌍</span><span>Roaming<em>srvst 112</em></span></div>
+<div class="gl"><img src="../assets/adminka/simblocked.ico" alt=""><span class="fb">🔐</span><span>SIM locked out<em>simblocked</em></span></div>
+<div class="gl"><img src="../assets/adminka/dongle173.ico" alt=""><span class="fb">🔌</span><span>Dongle E173<em>dongle173</em></span></div>
+<div class="gl"><img src="../assets/adminka/dongle1550.ico" alt=""><span class="fb">🔌</span><span>Dongle E1550<em>dongle1550</em></span></div>
+<div class="gl"><img src="../assets/adminka/rssi/rssi-4.ico" alt=""><span class="fb">▇</span><span>Signal 4/4<em>rssi-0…4</em></span></div>
+</div>
+</div>
+
+<div class="sheet">
+<h3>Number quality and call state</h3>
+<div class="grid">
+<div class="gl"><img src="../assets/adminka/qos/inew.png" alt=""><span class="fb">🆕</span><span>New number<em>inew</em></span></div>
+<div class="gl"><img src="../assets/adminka/qos/igoo.png" alt=""><span class="fb">👍</span><span>Good<em>igoo</em></span></div>
+<div class="gl"><img src="../assets/adminka/qos/inor.png" alt=""><span class="fb">😐</span><span>Normal<em>inor</em></span></div>
+<div class="gl"><img src="../assets/adminka/qos/ibad.png" alt=""><span class="fb">👎</span><span>Bad<em>ibad</em></span></div>
+<div class="gl"><img src="../assets/adminka/qos/iblo.png" alt=""><span class="fb">⛔</span><span>Blocked<em>iblo</em></span></div>
+<div class="gl"><img src="../assets/adminka/qos/irob.png" alt=""><span class="fb">🤖</span><span>Robot / IVR<em>irob</em></span></div>
+<div class="gl"><img src="../assets/adminka/qos/ipalevo.png" alt=""><span class="fb">🔥</span><span>Burned<em>ipalevo</em></span></div>
+<div class="gl"><img src="../assets/adminka/qos/ivip.png" alt=""><span class="fb">⭐</span><span>VIP<em>ivip</em></span></div>
+<div class="gl"><img src="../assets/adminka/qos/capok.png" alt=""><span class="fb">🟩</span><span>Capacity OK<em>capok</em></span></div>
+<div class="gl"><img src="../assets/adminka/qos/capfail.png" alt=""><span class="fb">🟥</span><span>Capacity fail<em>capfail</em></span></div>
+<div class="gl"><img src="../assets/adminka/qos/fast.ico" alt=""><span class="fb">⚡</span><span>Fast<em>fast</em></span></div>
+<div class="gl"><img src="../assets/adminka/qos/never.png" alt=""><span class="fb">🚯</span><span>Never answers<em>never</em></span></div>
+<div class="gl"><img src="../assets/adminka/state/state_dial.png" alt=""><span class="fb">☎️</span><span>Dialing<em>state_dial</em></span></div>
+<div class="gl"><img src="../assets/adminka/state/state_ring.png" alt=""><span class="fb">🔔</span><span>Ringing<em>state_ring</em></span></div>
+<div class="gl"><img src="../assets/adminka/state/state_active.png" alt=""><span class="fb">🔊</span><span>Active call<em>state_active</em></span></div>
+<div class="gl"><img src="../assets/adminka/state/state_wait.png" alt=""><span class="fb">⏳</span><span>Waiting<em>state_wait</em></span></div>
+<div class="gl"><img src="../assets/adminka/state/state_in.png" alt=""><span class="fb">📥</span><span>Incoming<em>state_in</em></span></div>
+<div class="gl"><img src="../assets/adminka/state/state_out.png" alt=""><span class="fb">📤</span><span>Outgoing<em>state_out</em></span></div>
+<div class="gl"><img src="../assets/adminka/state/end_party/1.ico" alt=""><span class="fb">🙋</span><span>Ended by caller<em>end_party 1</em></span></div>
+<div class="gl"><img src="../assets/adminka/state/end_party/2.ico" alt=""><span class="fb">🙅</span><span>Ended by callee<em>end_party 2</em></span></div>
+</div>
+</div>
+
+<div class="sheet">
+<h3>Special flags, SMS and billing</h3>
+<div class="grid">
+<div class="gl"><img src="../assets/adminka/spec/forwarding.png" alt=""><span class="fb">⏩</span><span>Forwarding<em>spec FOR</em></span></div>
+<div class="gl"><img src="../assets/adminka/spec/in_wait.png" alt=""><span class="fb">⏳</span><span>Waiting<em>spec WAI</em></span></div>
+<div class="gl"><img src="../assets/adminka/spec/in_sound.png" alt=""><span class="fb">🔉</span><span>Sound in<em>spec SND</em></span></div>
+<div class="gl"><img src="../assets/adminka/spec/local.png" alt=""><span class="fb">📍</span><span>Local<em>spec LOC</em></span></div>
+<div class="gl"><img src="../assets/adminka/spec/nav.png" alt=""><span class="fb">🧭</span><span>Navigation<em>spec NAV</em></span></div>
+<div class="gl"><img src="../assets/adminka/spec/carousel.ico" alt=""><span class="fb">🎠</span><span>Carousel<em>spec CAR</em></span></div>
+<div class="gl"><img src="../assets/adminka/spec/notvip.png" alt=""><span class="fb">➖</span><span>Not VIP<em>spec NVP</em></span></div>
+<div class="gl"><img src="../assets/adminka/spec/pre.png" alt=""><span class="fb">🅿️</span><span>Prepaid<em>spec PRE</em></span></div>
+<div class="gl"><img src="../assets/adminka/sms_in.png" alt=""><span class="fb">📩</span><span>SMS in<em>sms_in</em></span></div>
+<div class="gl"><img src="../assets/adminka/sms_out.png" alt=""><span class="fb">📤</span><span>SMS out<em>sms_out</em></span></div>
+<div class="gl"><img src="../assets/adminka/need_sms.png" alt=""><span class="fb">✉️</span><span>SMS required<em>need_sms</em></span></div>
+<div class="gl"><img src="../assets/adminka/ussdsms.png" alt=""><span class="fb">💬</span><span>USSD reply<em>ussdsms</em></span></div>
+<div class="gl"><img src="../assets/adminka/low_balance.png" alt=""><span class="fb">💸</span><span>Low balance<em>low_balance</em></span></div>
+<div class="gl"><img src="../assets/adminka/blocked_balance.ico" alt=""><span class="fb">🚫</span><span>Blocked, no funds<em>blocked_balance</em></span></div>
+<div class="gl"><img src="../assets/adminka/day_work.png" alt=""><span class="fb">🗓️</span><span>Working day<em>day_work</em></span></div>
+<div class="gl"><img src="../assets/adminka/day_holiday.png" alt=""><span class="fb">🎉</span><span>Holiday<em>day_holiday</em></span></div>
+</div>
+</div>
+
+<div class="sheet">
+<h3>Portal navigation — the one place emoji lead by design</h3>
+<div class="nav"><a href="#">🌐 Solutions</a><a href="#">💼 Business solutions</a><a href="#">💻 IT solutions</a><a href="#">🏗️ Projects</a><a href="#">🧠 Braindler</a><a href="#">🍀 LCKY coin</a><a href="#">🕸️ PBN</a><a href="#">🌟 Saijay</a><a href="#">🗂️ Archive projects</a><a href="#">🙌 Contribution</a><a href="#">📚 Knowledge areas</a><a href="#">🔧 Technology stack</a><a href="#">📦 Product stack</a><a href="#">🤝 Cooperation</a><a href="#">🚀 Startup</a><a href="#">⏰ Full-Time Job</a><a href="#">💬 Consultations</a><a href="#">🛠️ Long-Term Support</a><a href="#">📞 Contact us</a></div>
+<div style="font-size:13px;opacity:.75">The marketing portal is plain HTML with no asset pipeline, so there the emoji <i>is</i> the icon. Country context uses the flag: 🇹🇭 Thailand, 🇷🇺 Russia, 🇬🇧 England — the language switcher is flags only.</div>
+</div>
+
+<div class="sheet">
+<h3>Rules</h3>
+<div class="rules">
+<div class="yes">The GostSimBox icon is the icon. Ship the file; reach for emoji only when the surface cannot serve one.</div>
+<div class="yes">Wire the failover per image with <code>onerror</code>, so a missing file degrades to its glyph instead of a broken-image box.</div>
+<div class="yes">Render at 16px, or an integer multiple (32/48/64) with <code>image-rendering: pixelated</code>. Never 24px, never 40px.</div>
+<div class="yes">Status icons live in a fixed 26px centred column and always carry a <code>title</code> with the raw code (<code>simst 255</code>).</div>
+<div class="yes">Signal strength has its own five-step set (<code>rssi-0…4</code>) — use it, not a bar gauge and not emoji.</div>
+<div class="no">Never an icon and its emoji side by side; the failover replaces the image, it does not accompany it.</div>
+<div class="no">Never recolour, tint or add a shadow to a glyph — the drawing itself is the semantic.</div>
+<div class="no">Never reuse one mark for two states in the same table, and never swap a state's mark between screens.</div>
+</div>
+</div>
+
+</div>
+</body>
+</html>

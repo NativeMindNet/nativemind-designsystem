@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="NativeMind portal page" description="nativemind.net main page — Astra-derived chrome, emoji navigation with dropdowns, multilingual switcher" -->
+<helmet><script src="./ds-base.js"></script><style>body{margin:0}a{text-decoration:none}</style></helmet>
+<div style="min-height:100vh;display:flex;flex-direction:column;background:#F0F5FA;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',sans-serif;font-size:16px;line-height:1.6;color:#334155" onMouseLeave="{{ closeMenu }}">
+<header style="background:#FFFFFF">
+<div style="max-width:1240px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:28px">
+<a href="#" style="display:flex;align-items:center;gap:10px;flex:0 0 auto">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-20 40 840 900" width="32" height="32" fill="none" stroke="#046bd2" stroke-width="44" stroke-linecap="round" stroke-linejoin="round"><path d="M400 70 L40 280 L400 490 L760 280 Z"></path><path d="M400 280 L40 490 L400 700 L760 490 Z"></path><path d="M400 490 L40 700 L400 910 L760 700 Z"></path><path d="M400 70 L400 910"></path><path d="M40 280 L400 490"></path><path d="M400 280 L760 490"></path><path d="M40 490 L400 700"></path><path d="M400 490 L760 700"></path><path d="M40 490 L40 700"></path><path d="M760 280 L760 490"></path></svg>
+<span style="font-size:26px;font-weight:600;color:#1e293b">NativeMind.net</span>
+</a>
+<nav style="margin-left:auto;display:flex;gap:26px;align-items:center;position:relative">
+<sc-for list="{{ menu }}" as="item" hint-placeholder-count="6">
+<div style="position:relative" onMouseEnter="{{ item.open }}">
+<a href="#" style="font-size:15px;color:#334155;display:flex;align-items:center;gap:6px;padding:6px 0" style-hover="color:#045cb4">{{ item.label }}<span style="font-size:9px;color:#ADB6BE">{{ item.caret }}</span></a>
+<sc-if value="{{ item.isOpen }}" hint-placeholder-val="{{ false }}">
+<div style="position:absolute;top:100%;left:-14px;min-width:266px;background:#FFFFFF;border-top:2px solid #046bd2;box-shadow:0 8px 24px rgba(30,41,59,.13);padding:8px 0;z-index:9;display:flex;flex-direction:column">
+<sc-for list="{{ item.children }}" as="sub" hint-placeholder-count="3">
+<a href="#" style="font-size:14px;color:#334155;padding:9px 20px;white-space:nowrap" style-hover="color:#045cb4;background:#F0F5FA">{{ sub }}</a>
+</sc-for>
+</div>
+</sc-if>
+</div>
+</sc-for>
+</nav>
+</div>
+</header>
+<main style="flex:1;max-width:1240px;width:100%;margin:0 auto;padding:60px 20px;box-sizing:border-box">
+<article style="background:#FFFFFF;padding:3em;max-width:1200px;margin:0 auto;display:flex;flex-direction:column;gap:1.1em">
+<h1 style="margin:0 0 .3em;font-size:40px;line-height:1.4;font-weight:600;color:#1e293b;text-wrap:pretty">NativeMind.net – การพัฒนาแบบองค์รวม</h1>
+<h2 style="margin:0;font-size:32px;line-height:1.25;font-weight:600;color:#1e293b;text-wrap:pretty">ของ <strong>ซอฟต์แวร์ ระบบโหลดสูงและทนทานต่อข้อผิดพลาด</strong></h2>
+<h3 style="margin:0;font-size:26px;line-height:1.2;font-weight:600;color:#1e293b;text-wrap:pretty"><strong>ในด้านเว็บ, AI, สกุลเงินดิจิทัล, โทรคมนาคม, การตลาดดิจิทัล, การค้าดิจิทัล, การรับส่งข้อมูล และการสร้างลูกค้าเป้าหมาย</strong></h3>
+<p style="margin:0">เป็นเรื่องง่ายที่จะ <strong>เขียนโค้ดอย่างมืออาชีพ</strong>; มันเป็นเพียงชุดของประสบการณ์และทักษะคูณด้วยชั่วโมงการทำงาน</p>
+<p style="margin:0">มี <strong>ผู้เชี่ยวชาญจำนวนมาก</strong> ที่สามารถจัดการกับเรื่องนี้ได้ไม่เลวร้ายไปกว่าเรา</p>
+<p style="margin:0">ใน<strong>การพัฒนาแบบองค์รวม</strong> สิ่งสำคัญคือต้องมอง<strong>งานผ่านสายตาของธุรกิจ</strong> ไม่ใช่ผู้เขียนโค้ด</p>
+<p style="margin:0">การเพิ่ม <strong>ผลกำไร</strong> ให้สูงสุด และ <strong>การได้รับผลลัพธ์ที่เสร็จสิ้น</strong> ในขณะที่ลด <strong>เวลาของคุณให้เหลือน้อยที่สุด</strong> (การเขียนโปรแกรมชั่วโมงคนและการเงินมักจะไม่ได้อยู่ในครั้งแรก สถานที่)</p>
+<p style="margin:0">หากคุณต้องการผลลัพธ์ โปรดติดต่อ<strong>เรา</strong></p>
+<div style="display:flex;gap:12px;margin-top:1.2em">
+<a href="#" style="background:#046bd2;color:#fff;padding:15px 30px;font-size:16px;font-weight:500;line-height:1" style-hover="background:#045cb4">📞 Contact us</a>
+<a href="#" style="color:#046bd2;border:1px solid #046bd2;padding:14px 29px;font-size:16px;font-weight:500;line-height:1" style-hover="background:#045cb4;border-color:#045cb4;color:#fff">📦 Product Stack</a>
+</div>
+</article>
+</main>
+<footer style="background:#FFFFFF;padding:26px 20px">
+<div style="max-width:1240px;margin:0 auto;display:flex;gap:18px;align-items:center;flex-wrap:wrap">
+<p style="margin:0;font-size:14px;color:#334155">Copyright © 2024 NativeMind.net</p>
+<div style="margin-left:auto;display:flex;gap:16px">
+<a href="#" style="font-size:14px;color:#046bd2" style-hover="color:#045cb4">🇬🇧 English</a>
+<a href="#" style="font-size:14px;color:#046bd2" style-hover="color:#045cb4">🇹🇭 ไทย</a>
+<a href="#" style="font-size:14px;color:#046bd2" style-hover="color:#045cb4">🇷🇺 Русский</a>
+<a href="#" style="font-size:14px;color:#046bd2" style-hover="color:#045cb4">🇮🇳 हिन्दी</a>
+<a href="#" style="font-size:14px;color:#046bd2" style-hover="color:#045cb4">🇨🇳 中文</a>
+</div>
+</div>
+</footer>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = { open: -1 };
+  renderVals() {
+    const raw = [
+      ['🌐 วิธีแก้ปัญหา', ['💼 ทางออกของธุรกิจ', '🌍 Multi country business expansion', '💸 Crypto Hedge & Liquidity', '🚦 Traffic/Leads/Customers Generation', '💻 การวางโครงสร้างระบบคอมพิวเตอร์', '🈳 Multilanguage portals', '🪞 Cache mirrors for multiple countries', '🤖 Executive AI assistants', '💹 Developing Crypto', '🤖 Messenger Bots']],
+      ['🏗️ Projects', ['🌟 Saijay', '🕸️ PBN', '🍀 LCKY coin', '🧠 Braindler', '🗂️ โครงการเก่า', '👾 TrueGPT', '🎵 SoundHealer', '📜 List of Archive Projects']],
+      ['🙌 ผลงาน', ['🇹🇭 2023, FullDome.pro, Thailand', '🇷🇺 2022, STC, Russia', '🇷🇺 2019, New Advertising Technologies, Russia', '🇬🇧 2014, Altcomtech LLC, England', '📚 พื้นที่ความรู้', '🔧 Technology stack', '📦 Product Stack']],
+      ['🤝 การทำงานร่วมกัน', ['⏰ Full-Time Job', '💬 Individual Consultations', '🚀 Startup', '👷 Active Development', '🛠️ Long-Term Support']],
+      ['📞 Contact us', []],
+      ['🇹🇭 Thai | ไทย', ['🇬🇧 English', '🇹🇭 Thai | ไทย', '🇷🇺 Russian | Русский', '🇮🇳 Hindi | हिन्दी', '🇨🇳 Chinese | 中文']]
+    ];
+    return {
+      closeMenu: () => this.setState({ open: -1 }),
+      menu: raw.map(([label, children], i) => ({
+        label, children,
+        caret: children.length ? '▼' : '',
+        isOpen: this.state.open === i && children.length > 0,
+        open: () => this.setState({ open: i })
+      }))
+    };
+  }
+}
+
+</script>
+</body>
+</html>

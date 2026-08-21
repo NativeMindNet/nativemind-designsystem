@@ -1,0 +1,117 @@
+<!-- @dsCard group="Ad materials" viewport="1360x900" name="Z-depth staging (parallax)" subtitle="How promo frames are layered, and how to pull a feature onto the front plane" -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Z-depth staging</title>
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="ad.css">
+<style>
+body{margin:0;padding:44px 48px;background:#F4F6F8;font-family:var(--font-family);color:var(--fg-1)}
+h1{font-size:30px;font-weight:700;margin:0 0 6px;letter-spacing:-.01em}
+.lede{font-size:15px;line-height:1.55;color:#5E6E7A;max-width:70ch;margin:0 0 34px}
+.cols{display:grid;grid-template-columns:520px 1fr;gap:56px;align-items:start}
+h2{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#8A98A3;margin:0 0 16px}
+/* exploded stack */
+.stage{position:relative;height:470px;--sep:1}
+.plane{position:absolute;left:0;width:250px;height:186px;transform-origin:0 0;border:1.5px solid rgba(48,63,73,.18);border-radius:8px;transform:skewY(-16deg);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;color:rgba(48,63,73,.5)}
+.plane b{position:absolute;left:275px;top:50%;transform:translateY(-50%) skewY(16deg);white-space:nowrap;font-size:13px;color:var(--fg-1)}
+.plane b i{display:block;font-style:normal;font-size:11.5px;font-weight:400;color:#7F8D98;margin-top:2px}
+.plane::after{content:"";position:absolute;left:250px;top:50%;width:22px;border-top:1px dashed rgba(48,63,73,.3)}
+.p0{top:calc(20px + 0px * var(--sep));background:var(--brand-gradient);border-color:transparent}
+.p1{top:calc(20px + 58px * var(--sep));background:rgba(255,255,255,.94)}
+.p2{top:calc(20px + 116px * var(--sep));background:rgba(255,255,255,.55)}
+.p3{top:calc(20px + 174px * var(--sep));background:rgba(48,63,73,.1)}
+.p4{top:calc(20px + 232px * var(--sep));background:#fff;box-shadow:var(--ad-shadow-front-strong)}
+.hint{position:absolute;inset:0;padding:16px 18px}
+.hint u{display:block;height:9px;border-radius:2px;background:rgba(48,63,73,.55);text-decoration:none;margin-bottom:6px}
+.hint u+u{width:64%}
+.hint .dv{position:absolute;right:16px;top:14px;width:62px;height:120px;border-radius:12px;border:2px solid rgba(48,63,73,.45)}
+.hint .fc{height:26px;border-radius:6px;background:#fff;box-shadow:0 3px 12px rgba(20,35,50,.16);margin-bottom:9px;width:88%}
+.ctl{display:flex;align-items:center;gap:12px;margin-top:6px;font-size:12px;color:#7F8D98}
+.ctl input{width:200px}
+/* rules */
+.rule{display:grid;grid-template-columns:26px 1fr;gap:14px;margin-bottom:18px}
+.rule span{width:26px;height:26px;border-radius:50%;background:var(--brand);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.rule p{margin:3px 0 0;font-size:14px;line-height:1.5;color:#465563}
+.rule p b{color:var(--fg-1)}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;background:#E7EBEF;padding:1px 5px;border-radius:4px}
+/* do / dont */
+.pair{display:flex;gap:28px;margin-top:14px}
+.mini{width:214px}
+.mini .ad-frame{width:1290px;height:2796px;transform:scale(.1658);transform-origin:top left}
+.mini .box{width:214px;height:464px}
+.tag{display:flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;margin-top:10px}
+.tag i{width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:10px;font-style:normal}
+.no i{background:#E5484D}.yes i{background:#2ECC71}
+.tag em{font-style:normal;font-weight:400;color:#7F8D98}
+</style>
+</head>
+<body>
+<h1>Z-depth staging</h1>
+<p class="lede">Every VPN&nbsp;Client promo frame is built as five parallel planes, not as one flat composition. The gradient stays at the back, the tilted white slab and the copy sit in the middle, the device sits in front of them — and one feature is lifted out of the device onto a fifth plane that overhangs the device silhouette and, when useful, the frame edge itself. That last plane is the whole point of the layout: it is where the thing you want the store visitor to notice goes.</p>
+
+<div class="cols">
+<div>
+  <h2>The five planes</h2>
+  <div class="stage" id="stage">
+    <div class="plane p0"><b>0 · Background<i>Brand gradient #00C6FB → #005BEA. Never crossed.</i></b></div>
+    <div class="plane p1"><b>1 · Slab<i>White wedge, tilted −5°. Bleeds past all four edges.</i></b></div>
+    <div class="plane p2"><div class="hint"><u></u><u></u></div><b>2 · Copy<i>Eyebrow 40px, headline 130px uppercase, arrow.</i></b></div>
+    <div class="plane p3"><div class="hint"><div class="dv"></div></div><b>3 · Device<i>Phone tilted +15° or upright. Leaves the frame.</i></b></div>
+    <div class="plane p4"><div class="hint"><div class="fc"></div><div class="fc"></div><div class="fc"></div></div><b>4 · Front plane<i>The pulled-forward feature. 1–3 items, never more.</i></b></div>
+  </div>
+  <div class="ctl"><label for="sep">Separation</label><input id="sep" type="range" min="0" max="1.6" step="0.01" value="1"><span id="val">1.00</span></div>
+
+  <h2 style="margin-top:34px">Why it beats a plain mockup</h2>
+  <div class="pair">
+    <div class="mini">
+      <div class="box"><div class="ad-frame" data-theme="blue">
+        <div class="ad-wedge" style="width:1544.964px;height:823.939px;transform:matrix(0.996,-0.087,0.087,0.996,-220.192,-22.075)"></div>
+        <div class="ad-copy ad-headline" style="left:50px;top:120px;width:1190px;text-align:center">Безлимитный доступ</div>
+        <div class="ad-device" style="left:117px;top:551px;width:1056px;height:2145px">
+          <div class="ad-device-shell" style="background-image:url(assets/iphone14-black.png)"></div>
+          <div class="ad-device-screen" style="left:53px;top:45.502px;width:950px;height:2055px;border-radius:86px"><img src="assets/shot-apps.png" alt=""></div>
+        </div>
+      </div></div>
+      <div class="tag no"><i>✕</i>Всё на экране устройства <em>— строки тонут в макете</em></div>
+    </div>
+    <div class="mini">
+      <div class="box"><div class="ad-frame" data-theme="blue">
+        <div class="ad-wedge" style="width:1544.964px;height:823.939px;transform:matrix(0.996,-0.087,0.087,0.996,-220.192,-22.075)"></div>
+        <div class="ad-copy ad-headline" style="left:50px;top:120px;width:1190px;text-align:center">Безлимитный доступ</div>
+        <div class="ad-device" style="left:117px;top:551px;width:1056px;height:2145px">
+          <div class="ad-device-shell" style="background-image:url(assets/iphone14-black.png)"></div>
+          <div class="ad-device-screen" style="left:53px;top:45.502px;width:950px;height:2055px;border-radius:86px"><img src="assets/shot-apps.png" alt=""></div>
+        </div>
+        <div id="front"></div>
+      </div></div>
+      <div class="tag yes"><i>✓</i>Три строки вынесены наружу <em>— читаются в превью</em></div>
+    </div>
+  </div>
+</div>
+
+<div>
+  <h2>Rules for the front plane</h2>
+  <div class="rule"><span>1</span><p><b>One idea, one to three items.</b> A fourth card turns the accent back into a list. In the file it is always exactly three: three feature pills, three apps, three servers.</p></div>
+  <div class="rule"><span>2</span><p><b>It must cross a silhouette.</b> The lifted element overlaps the device body (and often the frame edge) so the eye reads two distinct depths. An element floating in empty gradient is not on the front plane, it is just a card.</p></div>
+  <div class="rule"><span>3</span><p><b>Reuse the real component, one step larger.</b> The pulled-out row is the same App-Item / Server-Item that exists inside the app, scaled up so its label survives a store thumbnail — <code>61.3px</code> title on a 1290px canvas.</p></div>
+  <div class="rule"><span>4</span><p><b>Shadow says which plane you are on.</b> <code>--ad-shadow-front</code> on white ground, <code>--ad-shadow-front-strong</code> on saturated gradient, <code>--ad-shadow-device</code> for the device itself. Same shadow on two planes collapses the depth.</p></div>
+  <div class="rule"><span>5</span><p><b>Copy is never overlapped.</b> The front plane lives below the headline block. The headline keeps its <code>50px</code> margin and its own plane.</p></div>
+  <div class="rule"><span>6</span><p><b>Tilt is a constant, not a decision.</b> Slabs <code>−5°</code> (<code>--ad-tilt-wedge</code>), devices <code>+15°</code> (<code>--ad-tilt-device</code>) or upright. The front plane is always axis-aligned — it is the one thing that must not fight legibility.</p></div>
+  <div class="rule"><span>7</span><p><b>Desktop works the same way.</b> The app window is lifted off the Macbook screen instead of being composited into it: two clean zones — hardware, and the interface you are selling — instead of one small screenshot inside a bezel.</p></div>
+</div>
+</div>
+
+<script src="ad-frames.js"></script>
+<script>
+const sep=document.getElementById('sep'),stage=document.getElementById('stage'),val=document.getElementById('val');
+sep.addEventListener('input',()=>{stage.style.setProperty('--sep',sep.value);val.textContent=(+sep.value).toFixed(2)});
+document.getElementById('front').innerHTML=
+ ['Instagram','YouTube','TikTok'].map((n,i)=>
+  '<div class="ad-front" style="left:50px;top:'+(1009+i*208)+'px;width:1190px;box-shadow:var(--ad-shadow-front-strong)">'+
+  '<div class="ad-front-lead"><div class="ad-icon"></div><div class="ad-front-title">'+n+'</div></div>'+
+  '<div class="ad-check"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.5l5.6 5.6L20 6.4"/></svg></div></div>').join('');
+</script>
+</body>
+</html>

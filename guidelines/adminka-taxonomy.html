@@ -1,0 +1,121 @@
+<!-- @dsCard group="Web & Admin" viewport="1240x1240" name="Adminka icon taxonomy & Fugue matching" subtitle="How the set is grouped, which marks are hand-drawn, and how suffix variants badge a base logo" -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+body{margin:0;padding:26px 30px;background:#F4F6F8;font-family:var(--font-family);color:var(--fg-1)}
+h1{font-size:26px;font-weight:700;margin:0 0 6px}
+.lede{font-size:14px;line-height:1.62;color:#5E6E7A;max-width:82ch;margin:0 0 26px}
+h2{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#8A98A3;margin:30px 0 12px}
+.card{background:#fff;border-radius:10px;box-shadow:0 1px 12px rgba(156,178,194,.2);padding:18px 20px}
+table{border-collapse:collapse;width:100%;font-size:13px}
+th{text-align:left;font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#8A98A3;padding:0 10px 8px 0;border-bottom:1px solid #E7EBEF}
+td{padding:7px 10px 7px 0;border-bottom:1px solid #F1F4F6;vertical-align:top;line-height:1.45}
+td code,th code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px;color:#465563}
+.ic{display:inline-flex;gap:3px;align-items:center}
+.ic img{width:16px;height:16px;image-rendering:pixelated}
+.d{display:inline-block;min-width:26px;text-align:right;font-family:ui-monospace,monospace;font-size:11px;color:#7F8D98}
+.tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:2px 6px;border-radius:4px}
+.t-cust{background:#FDECEF;color:#C2264B}
+.t-fug{background:#E8F1FD;color:#1B5FB8}
+.t-mod{background:#FFF4E0;color:#A05A00}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+p{margin:0 0 10px;font-size:13.5px;line-height:1.6;color:#465563}
+b{color:var(--fg-1)}
+ul{margin:6px 0 0;padding-left:20px;font-size:13.5px;line-height:1.6;color:#465563}
+li{margin-bottom:5px}
+.fg{display:flex;flex-wrap:wrap;gap:8px}
+.fg figure{margin:0;width:78px;display:flex;flex-direction:column;align-items:center;gap:6px;background:#F8FAFB;border-radius:7px;padding:8px 4px}
+.fg img{width:16px;height:16px}
+.fg code{font-size:9.5px;color:#7F8D98;text-align:center;word-break:break-all}
+</style>
+</head>
+<body>
+<h1>Adminka icon taxonomy</h1>
+<p class="lede">224 files, one flat sprite folder in 2015, now organised. Three things matter when reusing them: <b>what each folder means</b> (the grouping is the semantics), <b>which marks are hand-drawn</b> and therefore irreplaceable, and <b>how a suffix variant relates to its base</b> — a region badge stamped onto an operator logo, not a separate drawing.</p>
+
+<h2>1 · Grouping — folder = semantic axis</h2>
+<div class="card">
+<p>Each folder is one column of the panel, and one axis of meaning. A file name inside it is the <b>raw protocol value</b>, not a description — <code>state/simst/255.ico</code> is literally SIM status 255. That is why the set survived: the panel indexes it by value, so adding a state means adding a file, never touching code.</p>
+<table>
+<tr><th>Folder</th><th>Axis</th><th>Key is</th><th>n</th></tr>
+<tr><td><code>state/cfun/</code></td><td>Radio function</td><td>AT+CFUN value (<code>4</code>, <code>6</code>)</td><td>2</td></tr>
+<tr><td><code>state/simst/</code></td><td>SIM status</td><td>status code (<code>0,1,4,16,255</code>)</td><td>5</td></tr>
+<tr><td><code>state/srvst/</code></td><td>Network registration</td><td>status code (<code>0,1,2,112</code>)</td><td>4</td></tr>
+<tr><td><code>state/end_party/</code></td><td>Who ended the call</td><td>party id (<code>-1,1,2,3</code>)</td><td>4</td></tr>
+<tr><td><code>state/</code></td><td>Call state</td><td>state name (<code>state_ring</code>, <code>state_active</code>)</td><td>11</td></tr>
+<tr><td><code>qos/</code></td><td>Number quality</td><td>quality mnemonic (<code>igoo</code>, <code>ibad</code>, <code>iblo</code>)</td><td>21</td></tr>
+<tr><td><code>spec/</code></td><td>Special flags</td><td>3-letter flag (<code>FOR</code>, <code>WAI</code>, <code>LOC</code>)</td><td>17</td></tr>
+<tr><td><code>recog_types/</code></td><td>Recognition confidence</td><td>numeric tier (<code>10…120</code>)</td><td>10</td></tr>
+<tr><td><code>rssi/</code></td><td>Signal strength</td><td>step <code>0…4</code> — a scale, not a state</td><td>6</td></tr>
+<tr><td><code>im/</code></td><td>IM presence</td><td>presence letter (<code>ima…imn</code>)</td><td>6</td></tr>
+<tr><td><code>diagmode/</code></td><td>Diagnostic phase</td><td>phase name (<code>init…done</code>)</td><td>6</td></tr>
+<tr><td><code>napravleine/</code></td><td>Operator &amp; region</td><td><code>operator[_region]</code></td><td>33</td></tr>
+<tr><td><code>usb/</code></td><td>Hardware topology</td><td>hub / port model</td><td>6</td></tr>
+<tr><td><code>tree/</code></td><td>Tree connectors</td><td>structural, not semantic</td><td>3</td></tr>
+<tr><td><code>/</code> (root)</td><td>Billing, SMS, days, playback, dongles</td><td>mixed mnemonics</td><td>49</td></tr>
+</table>
+</div>
+
+<h2>2 · Suffix variants — one base logo, one stamped badge</h2>
+<div class="card">
+<p>Region variants are <b>not separate drawings</b>. Each is the operator logo with a small letter or mark stamped in a corner — <code>beeline_msk</code> is Beeline plus an <b>M</b> for Moscow. Measured on an 8×8 luminance signature, Δ is how many of the 64 cells differ from the base file: a letter badge moves 2–9 cells, a recoloured or larger regional mark moves 18–25.</p>
+<table>
+<tr><th>Base</th><th>Variant</th><th>Suffix means</th><th>Δ/64</th></tr>
+<tr><td rowspan="3"><span class="ic"><img src="../assets/adminka/napravleine/beeline.ico" alt=""></span> <code>beeline</code></td>
+    <td><span class="ic"><img src="../assets/adminka/napravleine/beeline_msk.ico" alt=""></span> <code>_msk</code></td><td>Moscow — <b>M</b> badge</td><td><span class="d">5</span></td></tr>
+<tr><td><span class="ic"><img src="../assets/adminka/napravleine/beeline_spb.ico" alt=""></span> <code>_spb</code></td><td>St Petersburg</td><td><span class="d">6</span></td></tr>
+<tr><td><span class="ic"><img src="../assets/adminka/napravleine/beeline_ru.ico" alt=""></span> <code>_ru</code></td><td>Federal / rest of RU</td><td><span class="d">4</span></td></tr>
+<tr><td rowspan="6"><span class="ic"><img src="../assets/adminka/napravleine/megafon.ico" alt=""></span> <code>megafon</code></td>
+    <td><span class="ic"><img src="../assets/adminka/napravleine/megafon_msk.ico" alt=""></span> <code>_msk</code></td><td>Moscow</td><td><span class="d">7</span></td></tr>
+<tr><td><span class="ic"><img src="../assets/adminka/napravleine/megafon_ru.ico" alt=""></span> <code>_ru</code></td><td>Federal</td><td><span class="d">6</span></td></tr>
+<tr><td><span class="ic"><img src="../assets/adminka/napravleine/megafon_ural.ico" alt=""></span> <code>_ural</code></td><td>Ural branch</td><td><span class="d">18</span></td></tr>
+<tr><td><span class="ic"><img src="../assets/adminka/napravleine/megafon_spb.ico" alt=""></span> <code>_spb</code></td><td>St Petersburg</td><td><span class="d">24</span></td></tr>
+<tr><td><span class="ic"><img src="../assets/adminka/napravleine/megafon_chel.ico" alt=""></span> <code>_chel</code></td><td>Chelyabinsk</td><td><span class="d">20</span></td></tr>
+<tr><td><span class="ic"><img src="../assets/adminka/napravleine/megafon_sz.ico" alt=""></span> <code>_sz</code></td><td>North-West branch</td><td><span class="d">25</span></td></tr>
+<tr><td rowspan="5"><span class="ic"><img src="../assets/adminka/napravleine/mts.ico" alt=""></span> <code>mts</code></td>
+    <td><span class="ic"><img src="../assets/adminka/napravleine/mts_msk.ico" alt=""></span> <code>_msk</code></td><td>Moscow</td><td><span class="d">9</span></td></tr>
+<tr><td><span class="ic"><img src="../assets/adminka/napravleine/mts_spb.ico" alt=""></span> <code>_spb</code></td><td>St Petersburg</td><td><span class="d">4</span></td></tr>
+<tr><td><span class="ic"><img src="../assets/adminka/napravleine/mts_ru.ico" alt=""></span> <code>_ru</code></td><td>Federal</td><td><span class="d">4</span></td></tr>
+<tr><td><span class="ic"><img src="../assets/adminka/napravleine/mts_by.ico" alt=""></span> <code>_by</code></td><td>Belarus</td><td><span class="d">2</span></td></tr>
+<tr><td><span class="ic"><img src="../assets/adminka/napravleine/mts_u.ico" alt=""></span> <code>_u</code></td><td>Ukraine</td><td><span class="d">9</span></td></tr>
+<tr><td colspan="2"><code>rostel_spb</code> → <code>rostel_spb_gor</code> / <code>_mob</code></td><td>Second suffix narrows service: fixed line vs mobile</td><td><span class="d">—</span></td></tr>
+<tr><td colspan="2"><code>proper_msk</code> / <code>_spb</code> / <code>_minsk</code>, <code>tele2_ru</code> / <code>_spb</code>, <code>life_by</code>, <code>velcom_by</code></td><td>Region-only, no plain base file ships</td><td><span class="d">—</span></td></tr>
+</table>
+<p style="margin-top:12px"><b>Rule when extending.</b> Never redraw an operator. Take the base <code>.ico</code>, stamp the region letter in the same corner at the same size, save as <code>&lt;operator&gt;_&lt;region&gt;.ico</code>. Region codes are fixed: <code>msk spb ru sz ural chel by u minsk gor mob</code>.</p>
+</div>
+
+<h2>3 · Provenance — Fugue-derived vs hand-drawn</h2>
+<div class="card">
+<p>The panel was built on <b>Fugue</b> (Yusuke Kamiyamane) and every reused glyph was renamed to its protocol value, so the original names are gone. Matching therefore has to be visual, not nominal. An 8×8 luminance signature per file is stored in <code>assets/adminka/_sig-napravleine.json</code> and <code>_groups-napravleine.json</code> — the same signature is what produced the Δ column above, and it is the hook for a full cross-match against the upstream 3 570-icon set when that set is available locally.</p>
+<div class="two">
+<div>
+<p><span class="tag t-fug">Fugue-derived</span> Generic states and objects: call states, SMS, calendar days, lock/key, playback, magnifier, clock, balance. Renamed to codes, otherwise untouched. If one is missing or needs a sibling state, take it from <b>Fugue 2×</b> — same family, 32×32.</p>
+</div>
+<div>
+<p><span class="tag t-cust">Hand-drawn, irreplaceable</span> Nothing outside Fugue can substitute these — they encode a specific company or a specific piece of hardware:</p>
+<ul>
+<li><code>napravleine/*</code> — 33 operator and region marks (Beeline, MegaFon, MTS, Tele2, Rostelecom, Velcom, Life, Kyivstar, DNA, Elisa, Sonera, Saunalahti, Proper).</li>
+<li><code>usb/hub_dlink</code>, <code>hub_hamma</code>, <code>hub_16</code>, <code>usb_pci</code>, <code>usb_port</code> — actual hub models on the rack.</li>
+<li><code>dongle173</code>, <code>dongle1550</code>, <code>pl2303</code>, <code>msm</code> — modem and chipset models.</li>
+<li><code>recog_types/10…120</code> — numeric confidence tiers.</li>
+<li><code>qos/ipalevo</code>, <code>irob</code>, <code>ivip1/2</code>, <code>spec/carousel</code>, <code>notvip</code> — domain slang with no generic equivalent.</li>
+</ul>
+</div>
+</div>
+<p style="margin-top:12px"><span class="tag t-mod">Modified</span> A base glyph with a stamped badge: the whole <code>napravleine</code> suffix family, plus <code>state/state_sout_in</code> / <code>_sout_out</code> (arrow overlay on the SOUT base) and <code>high_datt</code> / <code>low_acdl</code> shipping in both <code>.ico</code> and <code>.png</code>. Treat base and badge as separate layers when redrawing.</p>
+</div>
+
+<h2>4 · Fugue 2× fallback, vendored</h2>
+<div class="card">
+<p>32×32 sources from <code>chrisjbillington/fugue-2x-icons</code>, rendered at 16px — same density as the originals on screen, sharp on HiDPI, and <b>no <code>pixelated</code></b> for these. Use one only when no GostSimBox mark exists.</p>
+<div class="fg" id="fg"></div>
+</div>
+<script>
+const fug=['arrow','clapperboard','clock','control','cross','database','exclamation','flag','gear','globe','hard-hat','key','lock','magnifier','mail','money','network','plug','robot','server','star','status','tick','user','wi-fi'];
+document.getElementById('fg').innerHTML=fug.map(n=>'<figure><img src="../assets/fugue/'+n+'.png" alt="'+n+'"><code>'+n+'</code></figure>').join('');
+</script>
+</body>
+</html>

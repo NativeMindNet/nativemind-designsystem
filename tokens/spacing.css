@@ -1,0 +1,70 @@
+/* ============================================================
+   NativeMind DS — Spacing, radius, elevation, sizes
+   Source of truth: lib/design/app_spacing.dart, app_radius.dart,
+   app_shadows.dart, app_sizes.dart.
+   4-pt grid. One shadow used app-wide; the gradient (not heavier
+   elevation) carries emphasis.
+   ============================================================ */
+
+:root {
+  /* ── Spacing (multiples of 4) ────────────────────────────────── */
+  --space-xxs: 4px;
+  --space-xs:  8px;
+  --space-sm:  12px;
+  --space-md:  16px;
+  --space-lg:  20px;
+  --space-xl:  24px;
+  --space-xxl: 32px;
+  --page-gutter: 30px;     /* outer gutter on 390-wide phone frames */
+  --row-gutter: 14px;      /* inner padding/gap inside cards & rows */
+
+  /* ── Radius ───────────────────────────────────────────────────── */
+  --radius-sm:    8px;
+  --radius-md:   10px;     /* default card radius (Figma uses 10) */
+  --radius-lg:   16px;     /* larger CTA cards / pay screens */
+  --radius-xl:   20px;
+  --radius-pill: 999px;
+  --radius-circle: 50%;    /* connect button, flag chips */
+
+  /* ── Elevation ────────────────────────────────────────────────── */
+  /* The single app-wide shadow: soft, cool-grey, very low opacity. */
+  --shadow-card:        0 1px 32px 0 rgba(156, 178, 194, 0.10);
+  --shadow-card-strong: 0 4px 24px 0 rgba(156, 178, 194, 0.22);
+  --shadow-modal:       0 12px 48px 0 rgba(20, 35, 50, 0.20);
+
+  /* ── Standard sizes ───────────────────────────────────────────── */
+  --frame-w: 390px;        /* iPhone 14 design width */
+  --frame-h: 844px;
+  --tile-h: 64px;
+  --stat-tile-h: 75px;
+  --connect-btn: 150px;
+  --bottom-nav-h: 92px;
+  --tab-icon: 44px;
+
+  /* ── Motion ───────────────────────────────────────────────────── */
+  --ease-ios: cubic-bezier(0.25, 0.1, 0.25, 1); /* @kind other */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1); /* @kind other */
+  --dur-fast: 180ms; /* @kind other */
+  --dur-base: 250ms; /* @kind other */
+  --dur-screen: 400ms; /* @kind other */
+}
+
+/* ── Standard surfaces ───────────────────────────────────────────── */
+.surface-card {
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+}
+
+.tile {
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  padding: var(--row-gutter);
+}
+
+/* Focus ring — subtle, brand-tinted, ~2px. */
+:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--brand), transparent 60%);
+  outline-offset: 2px;
+}

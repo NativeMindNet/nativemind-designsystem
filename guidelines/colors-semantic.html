@@ -1,0 +1,23 @@
+<!-- @dsCard group="Colors" viewport="700x150" name="Semantic & ping" subtitle="Success · warning · danger — shared across products, drives the ping scale" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; padding: 22px; background: var(--bg); }
+  .row { display: flex; gap: 16px; }
+  .cell { flex: 1; display: flex; flex-direction: column; gap: 8px; }
+  .chip { height: 60px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; color: #fff; font-size: 13px; font-weight: 600; }
+  .name { font-size: 12px; font-weight: 600; color: var(--fg-1); }
+  .hex { font-size: 11px; color: var(--fg-2); }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="cell"><div class="chip" style="background:var(--success)">&lt; 80 ms</div><span class="name">success / ping-good</span><span class="hex">#1FB67A</span></div>
+    <div class="cell"><div class="chip" style="background:var(--warning)">&lt; 180 ms</div><span class="name">warning / ping-mid</span><span class="hex">#FFB020</span></div>
+    <div class="cell"><div class="chip" style="background:var(--danger)">&ge; 180 ms</div><span class="name">danger / ping-bad</span><span class="hex">#E5484D</span></div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!-- @dsCard group="Web & Admin" viewport="900x520" name="Portal style" subtitle="nativemind.net — Astra-derived tokens, type scale and chrome" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>body{margin:0;padding:24px;background:var(--portal-bg);font-family:var(--portal-font);color:var(--portal-text);font-size:var(--portal-size-body);line-height:1.6}h1,h2,h3{color:var(--portal-heading);font-weight:600;margin:0}.wrap{max-width:840px;margin:0 auto;display:flex;flex-direction:column;gap:22px}.sheet{background:var(--portal-surface);padding:26px 28px;display:flex;flex-direction:column;gap:14px}.h1{font-size:var(--portal-size-h1);line-height:1.4}.h2{font-size:var(--portal-size-h2);line-height:1.25}.h3{font-size:var(--portal-size-h3);line-height:1.2}a{color:var(--portal-link);text-decoration:underline}a:hover{color:var(--portal-link-hover)}.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.btn{background:var(--portal-link);color:#fff;border:0;padding:var(--portal-btn-pad);font:500 16px/1 var(--portal-font);cursor:pointer}.btn.out{background:transparent;color:var(--portal-link);border:1px solid var(--portal-link)}.sw{display:flex}.sw div{width:64px;height:44px;display:flex;align-items:flex-end;justify-content:center;font:600 9px/1 var(--portal-font);padding-bottom:5px;color:#fff}.note{font-size:13px;color:var(--portal-text);opacity:.75}</style>
+</head>
+<body>
+<div class="wrap">
+<div class="sheet">
+<div class="h1">Heading 1 — 40 / 1.4 / 600</div>
+<div class="h2">Heading 2 — 32 / 1.25 / 600</div>
+<div class="h3">Heading 3 — 26 / 1.2 / 600</div>
+<p style="margin:0">Body 16 / 1.6. Links are <a href="#">always underlined in article text</a> and never underlined in navigation. Container 1240px, article measure 1200px, section padding 3em.</p>
+</div>
+<div class="sheet">
+<div class="row"><button class="btn">Primary action</button><button class="btn out">Outline</button><span class="note">15/30 padding, weight 500, no radius, no shadow — hover swaps to the darker link colour.</span></div>
+<div class="sw">
+<div style="background:#046bd2">046bd2</div><div style="background:#045cb4">045cb4</div><div style="background:#1e293b">1e293b</div><div style="background:#334155">334155</div><div style="background:#ADB6BE">ADB6BE</div><div style="background:#F0F5FA;color:#334155">F0F5FA</div><div style="background:#FFFFFF;color:#334155;box-shadow:inset 0 0 0 1px #ADB6BE">FFFFFF</div>
+</div>
+<div class="note">The portal keeps its own blue. It is not the app accent and does not follow <code>[data-theme]</code>.</div>
+</div>
+</div>
+</body>
+</html>

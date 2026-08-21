@@ -1,0 +1,17 @@
+/* ============================================================
+   NativeMind Design System — global entry point
+   Consumers link THIS one file. It is an @import manifest only —
+   never put rules here. Everything reachable from these imports is
+   shipped to consuming projects (tokens + @font-face webfonts).
+   ============================================================ */
+
+@import "tokens/fonts.css";
+@import "tokens/colors.css";
+@import "tokens/typography.css";
+@import "tokens/spacing.css";
+@import "tokens/web.css";
+@import "tokens/ad.css";
+@import "components/kit/fig-assets.css";
+@import "screens/servers/fig-assets.css";
+@import "screens/apps/fig-assets.css";
+@import "screens/settings/fig-assets.css";

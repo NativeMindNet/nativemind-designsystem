@@ -1,0 +1,97 @@
+<!-- @dsCard group="TaxLien" viewport="900x720" name="TaxLien app — interactive" subtitle="Property Galaxy → detail → X-Ray, on the shared design system" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>TaxLien.online — UI Kit</title>
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  html, body { margin: 0; height: 100%; }
+  body { background: var(--bg); display: flex; align-items: center; justify-content: center; gap: 44px; padding: 40px; box-sizing: border-box; font-family: var(--font-family); }
+  .side { width: 220px; }
+  .side .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--brand); }
+  .side h1 { font-size: 22px; font-weight: 700; color: var(--fg-1); margin: 6px 0; line-height: 1.15; }
+  .side p { font-size: 14px; color: var(--fg-2); line-height: 1.5; margin: 0; }
+  .legend { margin-top: 20px; display: flex; flex-direction: column; gap: 8px; }
+  .legend div { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--fg-1); }
+  .legend span { width: 10px; height: 10px; border-radius: 50%; }
+</style>
+</head>
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script type="text/babel" src="ios-frame.jsx"></script>
+  <script type="text/babel" src="common.jsx"></script>
+  <script type="text/babel" src="screens.jsx"></script>
+  <script type="text/babel">
+    const { useState } = React;
+    function ListScreen({ onOpen }) {
+      return (
+        <div style={{ height:"100%", display:"flex", flexDirection:"column" }}>
+          <TLTopBar title="Listings" sub="847 properties · sorted by ROI"
+            trailing={<div style={{ display:"flex", gap:8 }}><TLIconBtn>{Ico.filter}</TLIconBtn><TLIconBtn accent>{Ico.ai}</TLIconBtn></div>}/>
+          <div style={{ flex:1, overflow:"auto", padding:"4px 16px 100px", display:"flex", flexDirection:"column", gap:10 }}>
+            {[...PROPS].sort((a,b)=>b.roi-a.roi).map(p => {
+              const [st,lbl] = ({listed:["info","LISTED"],otc:["cyan","OTC"],pre:["warn","PRE-AUCTION"],sold:["neutral","SOLD"]})[p.stage];
+              return (
+                <button key={p.id} onClick={()=>onOpen(p)} style={{ border:0, textAlign:"left", cursor:"pointer", background:"var(--surface)", borderRadius:12, boxShadow:"var(--shadow-card)", padding:8, display:"flex", gap:12, alignItems:"center", fontFamily:"var(--font-family)" }}>
+                  <span style={{ width:56, height:56, borderRadius:8, overflow:"hidden", flexShrink:0 }}><TLImage height={56} tone={p.tone}/></span>
+                  <span style={{ flex:1, minWidth:0 }}>
+                    <span style={{ display:"block", fontSize:15, fontWeight:600, color:"var(--fg-1)" }}>{p.addr}</span>
+                    <span style={{ display:"block", fontSize:12, color:"var(--fg-2)", marginTop:1 }}>{p.city} · {p.county}</span>
+                    <span style={{ display:"inline-block", marginTop:6 }}><TLBadge tone={st}>{lbl}</TLBadge></span>
+                  </span>
+                  <span style={{ textAlign:"right" }}>
+                    <span style={{ display:"block", fontSize:15, fontWeight:600, color:"var(--fg-1)" }}>{usd(p.value)}</span>
+                    <span style={{ display:"block", fontSize:13, fontWeight:600, color:"var(--success)", marginTop:2 }}>{pct(p.roi)} ROI</span>
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      );
+    }
+
+    function App() {
+      const [nav, setNav] = useState("galaxy");
+      const [stack, setStack] = useState([]); // drill-down: 'property' | 'xray'
+      const [sel, setSel] = useState(null);
+      const open = (p) => { setSel(p); setStack(["property"]); };
+      const top = stack[stack.length-1];
+
+      let screen;
+      if (top === "xray") screen = <XRayScreen p={sel} onBack={()=>setStack(["property"])}/>;
+      else if (top === "property") screen = <PropertyScreen p={sel} onBack={()=>setStack([])} onXray={()=>setStack(["property","xray"])}/>;
+      else if (nav === "list" || nav === "watch") screen = <ListScreen onOpen={open}/>;
+      else screen = <GalaxyScreen onOpen={open}/>;
+
+      const showNav = stack.length === 0;
+      return (
+        <React.Fragment>
+          <div className="side">
+            <div className="eyebrow">TaxLien.online</div>
+            <h1>Spatial intelligence for tax liens &amp; deeds</h1>
+            <p>The NativeMind design system, retargeted to a US tax-lien product: a Property Galaxy, X-Ray insights and FVI grading. Tap a bright dot.</p>
+            <div className="legend">
+              <div><span style={{ background:"var(--success)" }}></span>ROI ≥ 20%</div>
+              <div><span style={{ background:"var(--brand-light)" }}></span>15–20%</div>
+              <div><span style={{ background:"var(--warning)" }}></span>12–15%</div>
+              <div><span style={{ background:"var(--fg-2)" }}></span>&lt; 12% / sold</div>
+            </div>
+          </div>
+          <div data-theme="blue">
+            <IOSFrame theme="blue">
+              {screen}
+              {showNav && <TLNav active={nav} onNav={setNav}/>}
+            </IOSFrame>
+          </div>
+        </React.Fragment>
+      );
+    }
+    ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+  </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!-- @dsCard group="Web & Admin" viewport="960x600" name="Adminka anatomy" subtitle="What the 2015 PHP actually did — the whole stylesheet was 20 lines" -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>body{margin:0;padding:20px;background:#fff;font-family:'Times New Roman',Times,serif;font-size:16px;color:#000}table{border:1px solid blue;border-collapse:collapse}td{padding:3px;white-space:nowrap}.header{background-color:#eeeeff}.zebra{background-color:#eeeeff}.wrap{display:flex;flex-direction:column;gap:16px}h3{margin:0;font-size:16px;font-weight:700}.src{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11px;background:#f6f6f6;border:1px solid #ddd;padding:8px 10px;white-space:pre;overflow:auto;line-height:1.5}.two{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}p{margin:0;font-size:13px;line-height:1.55}#tooltip{display:inline-block;padding:4px;background-color:#eee;border:1px solid #000;text-align:center;font-size:13px}</style>
+</head>
+<body>
+<div class="wrap">
+<h3>head.php — the entire stylesheet</h3>
+<div class="two">
+<div class="src">table{
+	border:1px solid blue;
+	border-collapse:collapse;
+}
+td{
+	padding:3px;
+	white-space:nowrap;
+}
+.header{
+	background-color:#eeeeff;
+}
+.zebra{
+	background-color:#eeeeff;
+}
+#tooltip {
+    padding: 4px;
+    background-color: #eee;
+    border: 1px solid #000;
+    text-align: center;
+    font-size: 13px;
+    z-index:999}</div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<p>No <code>font-family</code> anywhere in the panel — it renders in the browser default serif, and that is part of the look. No radius, no shadow, no hover state, no sticky header, no spacing scale.</p>
+<p><code>.header</code> and <code>.zebra</code> are the <b>same</b> value. The header row is not darker than the stripes; the only thing separating them is position.</p>
+<p>Zebra is applied to even rows only, in the row tag itself:<br><code>&lt;tr &lt;?if($cnt%2==0)echo 'class="zebra"';?&gt;&gt;</code></p>
+<p>Hierarchy inside a cell comes from stacked <code>&lt;font size=1&gt;</code> / <code>size=2</code> sub-lines and <code>valign="top"</code>, never from padding.</p>
+<p>Column emphasis comes from <code>bgcolor</code> on individual <b>header</b> cells — <span style="background:#ccccff">#ccccff</span> on a-o/a-i, m-o/m-i, ACD-o and <span style="background:#ddddff">#ddddff</span> on ACD-i. Body cells stay unpainted.</p>
+</div>
+</div>
+<h3>sim.php — the main table, as rendered</h3>
+<table>
+<tr class="header">
+<td><input type="checkbox"></td><td>group</td><td><font size="1">pro</font></td><td><font size="1">cap</font></td><td><font size="1">im</font></td><td><font size="1">spec</font></td><td>state</td><td>plan<br><font size="1">nabor<br>tarif</font></td><td>number</td><td width="70">operator<br><font size="2">sim</font></td><td>balance<br>bal_diff</td><td>dongle</td><td>tot<br><font size="2" color="#cccccc">IMB/C<br>IMN/D/E</font></td><td bgcolor="#ccccff">a-o<br>a-i</td><td bgcolor="#ccccff">m-o<br>m-i</td><td bgcolor="#ccccff">ACD-o</td><td bgcolor="#ddddff">ACD-i</td><td><font size="2">ACDL</font></td><td>IMEI</td><td>IMSI</td><td>log</td>
+</tr>
+<tr>
+<td><input type="checkbox"></td><td>🟩<br><font size="1">1</font></td><td><font size="1">A3</font></td><td><font size="1">✔</font></td><td>🅱️</td><td>⏩</td><td>🔊<br><font size="1">( 18 сек.)</font></td><td>default<br><font size="1">nabor7<br>tar_a</font></td><td>+79261234567</td><td>MTS<br><font size="2">mts</font></td><td>140.20<br><font size="1">-1.10</font></td><td>🟢 ✅ 📶<br><font size="1">dongle0-1 E1550</font></td><td>412<br><font size="2" color="#cccccc">311/101<br>412/41</font></td><td>412<br>41</td><td>1284<br>3081</td><td>3.1</td><td>2.8</td><td><font size="2">2.8</font></td><td>359174000000</td><td>250011234504471</td><td>📄 ☎️</td>
+</tr>
+<tr class="zebra">
+<td><input type="checkbox"></td><td>⬜<br><font size="1"></font></td><td><font size="1">A6</font></td><td><font size="1"></font></td><td></td><td></td><td></td><td>default<br><font size="1">nabor7<br>tar_a</font></td><td>+79031112233</td><td>—</td><td></td><td>⚫ 🚫 🔍<br><font size="1">dongle0-2 E173</font></td><td>0<br><font size="2" color="#cccccc">0/0<br>0/0</font></td><td>0<br>0</td><td>0<br>0</td><td>0.0</td><td>0.0</td><td><font size="2">2.8</font></td><td>359174000137</td><td>250021234509013</td><td>📄 ☎️</td>
+</tr>
+<tr class="header"><td colspan="21">Всего: 2</td></tr>
+</table>
+<h3>Chrome</h3>
+<p>Hostname bold, server name and <code>hg identify</code> in <code>size=-1</code>, date and <code>uptime</code> right-aligned — then <code>&lt;br&gt;&lt;br&gt;</code>, the navigation as plain links joined by <code>&nbsp;::&nbsp;</code>, an <code>&lt;hr&gt;</code>, and <code>&lt;center&gt;</code> around the whole page. Links keep the untouched browser blue.</p>
+<p style="display:flex;gap:8px;align-items:center">Tooltip: <span id="tooltip">showlog_cut.php?imsi=250011234504471</span> — absolutely positioned, follows the cursor at +12/+10 px, body fetched by XMLHttpRequest.</p>
+</div>
+</body>
+</html>

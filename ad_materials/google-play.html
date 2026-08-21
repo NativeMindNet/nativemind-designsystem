@@ -1,0 +1,19 @@
+<!-- @dsCard group="Ad materials" viewport="1700x1080" name="Google Play — 1440×2560 + feature graphic" subtitle="Galaxy S22 Ultra device plane; wider canvas, same 50px copy margin" -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Google Play screenshots</title>
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="ad.css">
+</head>
+<body class="ad-board" style="flex-direction:column">
+<div id="board" style="display:flex;gap:30px;align-items:flex-start"></div>
+<div id="cover" style="display:flex"></div>
+<script src="ad-frames.js"></script>
+<script>
+AdFrames.mount('#board', AdFrames.googlePlay(0.21));
+AdFrames.mount('#cover', AdFrames.cover(0.62));
+</script>
+</body>
+</html>

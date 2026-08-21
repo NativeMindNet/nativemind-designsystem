@@ -1,0 +1,28 @@
+<!-- @dsCard group="Spacing" viewport="700x170" name="Radius & elevation" subtitle="10px default card · one app-wide soft shadow" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; padding: 26px; background: var(--bg); font-family: var(--font-family); }
+  .row { display: flex; gap: 22px; align-items: center; }
+  .item { display: flex; flex-direction: column; gap: 9px; align-items: center; }
+  .box { width: 70px; height: 70px; background: var(--surface); border: 1px solid var(--line); }
+  .tok { font-size: 11px; color: var(--fg-1); font-weight: 600; }
+  .px { font-size: 10px; color: var(--fg-2); }
+  .sep { width: 1px; height: 70px; background: var(--line); }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="item"><div class="box" style="border-radius:8px"></div><span class="tok">sm</span><span class="px">8px</span></div>
+    <div class="item"><div class="box" style="border-radius:10px"></div><span class="tok">md</span><span class="px">10px</span></div>
+    <div class="item"><div class="box" style="border-radius:16px"></div><span class="tok">lg</span><span class="px">16px</span></div>
+    <div class="item"><div class="box" style="border-radius:50%"></div><span class="tok">circle</span><span class="px">50%</span></div>
+    <div class="sep"></div>
+    <div class="item"><div class="box" style="border-radius:10px;border:0;box-shadow:var(--shadow-card)"></div><span class="tok">shadow-card</span><span class="px">soft · cool</span></div>
+    <div class="item"><div class="box" style="border-radius:10px;border:0;box-shadow:var(--shadow-card-strong)"></div><span class="tok">strong</span><span class="px">CTA</span></div>
+  </div>
+</body>
+</html>

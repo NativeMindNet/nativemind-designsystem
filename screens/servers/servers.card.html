@@ -1,0 +1,37 @@
+<!-- @dsCard group="App screens" viewport="1420x1260" name="Servers — choose & search" subtitle="Server list, country selection and the search flow" -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<style>
+body{margin:0;padding:26px;background:#E9EDF1;font-family:var(--font-family)}
+.grid{display:flex;flex-wrap:wrap;gap:22px}
+figure{margin:0;width:390px}
+figcaption{font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:#7E8B96;margin:0 0 8px 2px}
+.frame{width:390px;height:844px;overflow:hidden;border-radius:14px;background:#F8F9FA;box-shadow:0 10px 40px rgba(20,35,50,.14)}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel">
+const NS = window.VPNclientUniversalDesignSystem_4d5632;
+const screens = ["ChoseServer","ChoseServerBot","ChoseServerEnd","ChoseServerGermany","ChoseServerGermanyTouch","ChoseServerStart","ChoseServerTurkey","ChoseServerTurkeyChosen","ChoseServerTurkeyTouch","ServerSearch","ServerSearchBeTouch","ServerSearchLoad","ServerSearchOpen","ServerSearchStart","ServerSearchTypeB","ServerSearchTypeE","ServersReadme","ServersReadme2","ServersReadme3"];
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <div className="grid">{screens.map(n => {
+    const S = NS[n];
+    return (
+      <figure key={n}>
+        <figcaption>{n}</figcaption>
+        <div className="frame">{S ? <S/> : <span style={{fontSize:12,color:"var(--danger)",padding:12,display:"block"}}>{n} missing</span>}</div>
+      </figure>
+    );
+  })}</div>
+);
+</script>
+</body>
+</html>

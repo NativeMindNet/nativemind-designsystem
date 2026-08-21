@@ -1,0 +1,62 @@
+/* ============================================================
+   NativeMind DS — Webfonts
+   SF Pro Text is the native iOS face used across all Figma files
+   (Pro / Simple / Mini / Ad) and declared in the Flutter codebases
+   (app_typography.dart -> fontFamily: 'SF Pro Text').
+   The real TTFs were supplied by the brand owner and are embedded here.
+   ============================================================ */
+
+@font-face {
+  font-family: "SF Pro Text";
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  src: url("../assets/fonts/sf-pro-text-light.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SF Pro Text";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("../assets/fonts/sf-pro-text-regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SF Pro Text";
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  src: url("../assets/fonts/sf-pro-text-semibold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "SF Pro Text";
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url("../assets/fonts/sf-pro-text-bold.ttf") format("truetype");
+}
+
+/* Heavy (800) — used by big marketing / App Store headlines. */
+@font-face {
+  font-family: "SF Pro Text";
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+  src: url("../assets/fonts/sf-pro-text-heavy.ttf") format("truetype");
+}
+
+/* Aliases — the Figma files also reference the display/base family names.
+   Both resolve to the same supplied TTFs so materialized kit components
+   render in the real face. */
+@font-face{font-family:"SF Pro";font-weight:300;font-style:normal;font-display:swap;src:url("../assets/fonts/sf-pro-text-light.ttf") format("truetype")}
+@font-face{font-family:"SF Pro";font-weight:400;font-style:normal;font-display:swap;src:url("../assets/fonts/sf-pro-text-regular.ttf") format("truetype")}
+@font-face{font-family:"SF Pro";font-weight:600;font-style:normal;font-display:swap;src:url("../assets/fonts/sf-pro-text-semibold.ttf") format("truetype")}
+@font-face{font-family:"SF Pro";font-weight:700;font-style:normal;font-display:swap;src:url("../assets/fonts/sf-pro-text-bold.ttf") format("truetype")}
+@font-face{font-family:"SF Pro";font-weight:800;font-style:normal;font-display:swap;src:url("../assets/fonts/sf-pro-text-heavy.ttf") format("truetype")}
+@font-face{font-family:"SF Pro Display";font-weight:300;font-style:normal;font-display:swap;src:url("../assets/fonts/sf-pro-text-light.ttf") format("truetype")}
+@font-face{font-family:"SF Pro Display";font-weight:400;font-style:normal;font-display:swap;src:url("../assets/fonts/sf-pro-text-regular.ttf") format("truetype")}
+@font-face{font-family:"SF Pro Display";font-weight:600;font-style:normal;font-display:swap;src:url("../assets/fonts/sf-pro-text-semibold.ttf") format("truetype")}
+@font-face{font-family:"SF Pro Display";font-weight:700;font-style:normal;font-display:swap;src:url("../assets/fonts/sf-pro-text-bold.ttf") format("truetype")}
+@font-face{font-family:"SF Pro Display";font-weight:800;font-style:normal;font-display:swap;src:url("../assets/fonts/sf-pro-text-heavy.ttf") format("truetype")}

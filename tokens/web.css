@@ -1,0 +1,97 @@
+/* ============================================================
+   NativeMind DS — Web & admin surfaces
+   ------------------------------------------------------------
+   Two non-mobile surfaces that predate the Flutter apps and are
+   still in production. They are deliberately NOT restyled to the
+   app palette — they carry their own inherited identity.
+
+   1. PORTAL  (nativemind.net, WordPress/Astra, 2023—)
+      Values lifted verbatim from the theme's inline CSS custom
+      properties (--ast-global-color-*) in the live page source.
+   2. ADMINKA (telephony control panel, 2015—)
+      Dense operator tables, ~50 columns wide. Values lifted verbatim
+      from simbox/head.php — nothing is restyled. The one substitution
+      is semantic, not visual: the imgs/*.ico sprite set is replaced by
+      emoji glyphs (see the Emoji lexicon card).
+   ============================================================ */
+
+:root {
+  /* ── Portal ──────────────────────────────────────────────────── */
+  --portal-link:         #046bd2;  /* --ast-global-color-0 */
+  --portal-link-hover:   #045cb4;  /* --ast-global-color-1 */
+  --portal-heading:      #1e293b;  /* --ast-global-color-2 */
+  --portal-text:         #334155;  /* --ast-global-color-3 */
+  --portal-bg:           #F0F5FA;  /* --ast-global-color-4 */
+  --portal-surface:      #FFFFFF;  /* --ast-global-color-5 */
+  --portal-border:       #ADB6BE;  /* --ast-global-color-6 */
+  --portal-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  --portal-container:    1240px;   /* header + content outer max */
+  --portal-content:      1200px;   /* article measure */
+  --portal-size-h1:      40px;     /* 1.4 line-height, weight 600 */
+  --portal-size-h2:      32px;     /* 1.25 */
+  --portal-size-h3:      26px;     /* 1.2  */
+  --portal-size-body:    16px;     /* 1.6  */
+  --portal-size-title:   26px;     /* site title */
+  --portal-logo:         32px;     /* header mark box */
+  --portal-btn-pad:      15px 30px;
+  --portal-radius:       2px;      /* pagination / small chrome */
+  --portal-section-gap:  3em;      /* --ast-container-default-*-padding */
+
+  /* ── Adminka ─────────────────────────────────────────────────── */
+  /* Verbatim from simbox/head.php. The whole stylesheet was 20 lines:
+     a blue collapsed grid, 3px cells, one shade (#eeeeff) used for BOTH
+     the header row and the zebra, and a cursor-following tooltip. There
+     is no font-family anywhere in the panel — it renders in the browser
+     default serif, and that is part of the look. Nothing else existed:
+     no radius, no shadow, no hover state, no sticky header. */
+  --adm-line:      #0000ff;   /* table{border:1px solid blue} */
+  --adm-header:    #eeeeff;   /* .header — and .zebra, same value */
+  --adm-zebra:     #eeeeff;   /* tr on even $cnt only */
+  --adm-band:      #ccccff;   /* bgcolor on the a-o/a-i, m-o/m-i, ACD-o headers */
+  --adm-band-2:    #ddddff;   /* bgcolor on the ACD-i header */
+  --adm-cell:      3px;       /* td{padding:3px; white-space:nowrap} */
+  --adm-tip-bg:    #eeeeee;   /* #tooltip */
+  --adm-tip-line:  #000000;
+  --adm-font: "Times New Roman", Times, serif;  /* i.e. no font-family */
+  --adm-size:      16px;      /* browser default */
+  --adm-size-2:    13px;      /* <font size=2> — secondary labels */
+  --adm-size-1:    10px;      /* <font size=1> — the sub-line stack */
+  --adm-size-tip:  13px;      /* #tooltip */
+  --adm-muted:     #cccccc;   /* <font size=2 color="#cccccc"> */
+  --adm-alarm:     #ff0000;   /* blacklisted IMEI: <b style="color:red"> */
+  --adm-link:      #0000ee;   /* untouched browser link colour */
+}
+
+/* ── GostSimBox-admin: dense operations table ─────────────────────
+   Lifted verbatim from the shipping panel (templates/gostsimbox-admin).
+   The zebra is a BRAND TINT, not a grey: at 3.5% it separates rows
+   without adding a second neutral, and it stacks with the 9% selection
+   wash on the same hue — so a selected odd row still reads as selected.
+   Three tints, one hue, ascending: row → header → selection.        */
+:root {
+  --adm-row-even: #FFFFFF; /* @kind color */
+  /* zebra, brand-tinted */
+  --adm-row-odd: rgba(0, 91, 234, 0.035); /* @kind color */
+  /* column header band */
+  --adm-head-bg: rgba(0, 91, 234, 0.05); /* @kind color */
+  /* selected row + chip */
+  --adm-row-sel: rgba(0, 91, 234, 0.09); /* @kind color */
+  /* between rows */
+  --adm-row-line: rgba(156, 178, 194, 0.12); /* @kind color */
+  /* under the header */
+  --adm-head-line: rgba(156, 178, 194, 0.2); /* @kind color */
+  /* panel & card edges */
+  --adm-chrome-line: rgba(156, 178, 194, 0.14); /* @kind color */
+  /* cell text */
+  --adm-cell: 12px; /* @kind font */
+  /* secondary line inside a cell */
+  --adm-cell-sub: 10px; /* @kind font */
+  /* IMEI / IMSI / device paths */
+  --adm-cell-mono: 11px; /* @kind font */
+  /* column label */
+  --adm-head: 11px; /* @kind font */
+  /* row cell */
+  --adm-cell-pad: 7px 6px; /* @kind spacing */
+  /* header cell */
+  --adm-head-pad: 8px 6px; /* @kind spacing */
+}

@@ -1,0 +1,66 @@
+<!-- @dsCard group="Components" viewport="700x560" name="Data display" subtitle="StatTile · ServerRow · AppRow · ListRow · Badge" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<style>
+  body { margin: 0; padding: 26px; background: var(--bg); font-family: var(--font-family); }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; align-items: start; }
+  .stats { display: flex; gap: 12px; }
+  .stack { display: flex; flex-direction: column; gap: 12px; }
+  .card { background: var(--surface); border-radius: var(--radius-md); box-shadow: var(--shadow-card); overflow: hidden; }
+  .badges { display: flex; gap: 8px; flex-wrap: wrap; grid-column: 1 / -1; }
+</style>
+</head>
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+  <script src="../../_ds_bundle.js"></script>
+  <script type="text/babel">
+    const { StatTile, ServerRow, AppRow, ListRow, Badge, Switch } = window.VPNclientUniversalDesignSystem_4d5632;
+    const img = (s, w=24) => <img src={s} width={w} height={w} alt=""/>;
+    function Demo() {
+      return (
+        <div className="grid">
+          <div className="stack">
+            <div className="stats">
+              <StatTile icon={img("../../assets/icons/icon-download.svg")} label="Download" value="42.6"/>
+              <StatTile icon={img("../../assets/icons/icon-upload.svg")} label="Upload" value="8.1"/>
+              <StatTile icon={img("../../assets/icons/icon-signal.svg")} label="Signal" value="42ms"/>
+            </div>
+            <div className="stack">
+              <ServerRow flag="../../assets/icons/flag-de.svg" name="Германия" subtitle="Frankfurt" ping={42} selected/>
+              <ServerRow flag="🇹🇷" name="Турция" subtitle="Istanbul" ping={150}/>
+              <ServerRow flag="🇰🇿" name="Казахстан" ping={205}/>
+            </div>
+            <div className="stack">
+              <AppRow icon="../../assets/apps/app-instagram.png" name="Instagram" checked onChange={()=>{}}/>
+              <AppRow icon="../../assets/apps/app-tiktok.png" name="TikTok" checked onChange={()=>{}}/>
+              <AppRow icon="../../assets/apps/app-amazon.png" name="Amazon" onChange={()=>{}}/>
+            </div>
+          </div>
+          <div className="card">
+            <ListRow icon={img("../../assets/apps/app-instagram.png", 30)} title="Instagram" trailing={<Switch checked/>}/>
+            <ListRow icon={img("../../assets/apps/app-tiktok.png", 30)} title="TikTok" trailing={<Switch checked={false} onChange={()=>{}}/>}/>
+            <ListRow title="Язык" subtitle="Русский" chevron/>
+            <ListRow title="Подписка" trailing={<Badge tone="success">Active</Badge>} chevron divider={false}/>
+          </div>
+          <div className="badges">
+            <Badge tone="success">Connected</Badge>
+            <Badge tone="warning">Reconnecting</Badge>
+            <Badge tone="danger" solid>Offline</Badge>
+            <Badge tone="pre">PRE-AUCTION</Badge>
+            <Badge tone="listed">LISTED</Badge>
+            <Badge tone="otc">OTC</Badge>
+            <Badge tone="sold">SOLD</Badge>
+          </div>
+        </div>
+      );
+    }
+    ReactDOM.createRoot(document.getElementById("root")).render(<Demo/>);
+  </script>
+</body>
+</html>

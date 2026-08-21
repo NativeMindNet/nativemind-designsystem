@@ -1,0 +1,27 @@
+<!-- @dsCard group="Spacing" viewport="700x150" name="Spacing scale" subtitle="4-pt grid · 30px page gutter · 14px row gutter" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+  body { margin: 0; padding: 26px; background: var(--bg); font-family: var(--font-family); }
+  .row { display: flex; align-items: flex-end; gap: 18px; }
+  .item { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .bar { background: var(--brand); border-radius: 3px; width: 100%; }
+  .tok { font-size: 11px; color: var(--fg-1); font-weight: 600; }
+  .px { font-size: 10px; color: var(--fg-2); }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="item" style="width:34px"><div class="bar" style="height:4px"></div><span class="tok">xxs</span><span class="px">4</span></div>
+    <div class="item" style="width:34px"><div class="bar" style="height:8px"></div><span class="tok">xs</span><span class="px">8</span></div>
+    <div class="item" style="width:34px"><div class="bar" style="height:12px"></div><span class="tok">sm</span><span class="px">12</span></div>
+    <div class="item" style="width:34px"><div class="bar" style="height:16px"></div><span class="tok">md</span><span class="px">16</span></div>
+    <div class="item" style="width:34px"><div class="bar" style="height:20px"></div><span class="tok">lg</span><span class="px">20</span></div>
+    <div class="item" style="width:34px"><div class="bar" style="height:24px"></div><span class="tok">xl</span><span class="px">24</span></div>
+    <div class="item" style="width:34px"><div class="bar" style="height:32px"></div><span class="tok">xxl</span><span class="px">32</span></div>
+  </div>
+</body>
+</html>

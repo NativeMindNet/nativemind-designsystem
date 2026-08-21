@@ -1,0 +1,209 @@
+[
+ {
+  "base": "beeline",
+  "variants": [
+   {
+    "n": "beeline",
+    "diff": 0
+   },
+   {
+    "n": "beeline_msk",
+    "diff": 5
+   },
+   {
+    "n": "beeline_ru",
+    "diff": 4
+   },
+   {
+    "n": "beeline_spb",
+    "diff": 6
+   }
+  ]
+ },
+ {
+  "base": "dna",
+  "variants": [
+   {
+    "n": "dna",
+    "diff": 0
+   }
+  ]
+ },
+ {
+  "base": "elisa",
+  "variants": [
+   {
+    "n": "elisa",
+    "diff": 0
+   }
+  ]
+ },
+ {
+  "base": "hz",
+  "variants": [
+   {
+    "n": "hz",
+    "diff": 0
+   }
+  ]
+ },
+ {
+  "base": "kievstar",
+  "variants": [
+   {
+    "n": "kievstar",
+    "diff": 0
+   }
+  ]
+ },
+ {
+  "base": "life",
+  "variants": [
+   {
+    "n": "life_by",
+    "diff": null
+   }
+  ]
+ },
+ {
+  "base": "megafon",
+  "variants": [
+   {
+    "n": "megafon",
+    "diff": 0
+   },
+   {
+    "n": "megafon_chel",
+    "diff": 20
+   },
+   {
+    "n": "megafon_msk",
+    "diff": 7
+   },
+   {
+    "n": "megafon_ru",
+    "diff": 6
+   },
+   {
+    "n": "megafon_spb",
+    "diff": 24
+   },
+   {
+    "n": "megafon_sz",
+    "diff": 25
+   },
+   {
+    "n": "megafon_ural",
+    "diff": 18
+   }
+  ]
+ },
+ {
+  "base": "mts",
+  "variants": [
+   {
+    "n": "mts",
+    "diff": 0
+   },
+   {
+    "n": "mts_by",
+    "diff": 2
+   },
+   {
+    "n": "mts_msk",
+    "diff": 9
+   },
+   {
+    "n": "mts_ru",
+    "diff": 4
+   },
+   {
+    "n": "mts_spb",
+    "diff": 4
+   },
+   {
+    "n": "mts_u",
+    "diff": 9
+   }
+  ]
+ },
+ {
+  "base": "proper",
+  "variants": [
+   {
+    "n": "proper_minsk",
+    "diff": null
+   },
+   {
+    "n": "proper_msk",
+    "diff": null
+   },
+   {
+    "n": "proper_spb",
+    "diff": null
+   }
+  ]
+ },
+ {
+  "base": "rostel",
+  "variants": [
+   {
+    "n": "rostel_spb",
+    "diff": null
+   }
+  ]
+ },
+ {
+  "base": "rostel_spb",
+  "variants": [
+   {
+    "n": "rostel_spb_gor",
+    "diff": null
+   },
+   {
+    "n": "rostel_spb_mob",
+    "diff": null
+   }
+  ]
+ },
+ {
+  "base": "saunalahti",
+  "variants": [
+   {
+    "n": "saunalahti",
+    "diff": 0
+   }
+  ]
+ },
+ {
+  "base": "sonera",
+  "variants": [
+   {
+    "n": "sonera",
+    "diff": 0
+   }
+  ]
+ },
+ {
+  "base": "tele2",
+  "variants": [
+   {
+    "n": "tele2_ru",
+    "diff": null
+   },
+   {
+    "n": "tele2_spb",
+    "diff": null
+   }
+  ]
+ },
+ {
+  "base": "velcom",
+  "variants": [
+   {
+    "n": "velcom_by",
+    "diff": null
+   }
+  ]
+ }
+]

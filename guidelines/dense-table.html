@@ -1,0 +1,129 @@
+<!-- @dsCard group="Web & Admin" viewport="1240x900" name="Dense table (GostSimBox-admin)" subtitle="Brand-tinted zebra, icon-only headers and stacked cells — lifted from the shipping panel" -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+body{margin:0;padding:26px 30px;background:#EEF1F4;font-family:var(--font-family);color:#303F49}
+h1{font-size:24px;font-weight:700;margin:0 0 6px}
+.lede{font-size:14px;line-height:1.6;color:#5E6E7A;max-width:82ch;margin:0 0 24px}
+h2{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#8A98A3;margin:28px 0 12px}
+.panel{background:#fff;border-radius:10px;box-shadow:0 1px 32px rgba(156,178,194,.10);overflow:hidden}
+.phead{display:flex;align-items:center;gap:14px;padding:14px 18px;border-bottom:1px solid var(--adm-chrome-line)}
+.phead .t{font-size:20px;font-weight:600;color:#1A2129}
+.phead .n{font-size:13px;color:#8A97A3}
+.chip{display:flex;align-items:center;gap:8px;padding:4px 10px;border-radius:20px;background:var(--adm-row-sel);font-size:12px;font-weight:600;color:#005BEA}
+.tbl{overflow-x:auto}
+.r{display:grid;grid-template-columns:34px 96px 116px 128px 88px 78px 74px 90px 1fr;min-width:max-content}
+.h{background:var(--adm-head-bg);border-bottom:1px solid var(--adm-head-line);align-items:end}
+.h>div{padding:var(--adm-head-pad);font-size:var(--adm-head);font-weight:600;color:#1A2129;line-height:1.25;cursor:pointer}
+.h .sub{font-size:10px;font-weight:400;color:#8A97A3}
+.b{border-bottom:1px solid var(--adm-row-line)}
+.b>div{padding:var(--adm-cell-pad);font-size:var(--adm-cell);line-height:1.3}
+.b:nth-child(odd){background:var(--adm-row-odd)}
+.b:nth-child(even){background:var(--adm-row-even)}
+.b.sel{background:var(--adm-row-sel)}
+.ico{display:flex;gap:2px;align-items:center}
+.ico img,.h img{width:16px;height:16px;image-rendering:pixelated;display:block}
+.sub{font-size:var(--adm-cell-sub);color:#8A97A3}
+.sub2{font-size:var(--adm-cell-sub);color:#B6B6B6}
+.warn{color:#E5484D;font-weight:600}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:var(--adm-cell-mono)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px}
+.card{background:#fff;border-radius:10px;box-shadow:0 1px 12px rgba(156,178,194,.2);padding:16px 18px}
+p{margin:0 0 9px;font-size:13.5px;line-height:1.6;color:#465563}
+b{color:#1A2129}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;background:#EEF1F4;padding:1px 5px;border-radius:4px}
+ul{margin:6px 0 0;padding-left:19px;font-size:13.5px;line-height:1.6;color:#465563}
+li{margin-bottom:5px}
+.sw{display:flex;gap:10px;margin-top:10px}
+.sw div{flex:1;border-radius:7px;border:1px solid var(--adm-chrome-line);padding:26px 8px 8px;font-size:10.5px;font-family:ui-monospace,monospace;color:#5E6E7A}
+</style>
+</head>
+<body>
+<h1>Dense table</h1>
+<p class="lede">The operations panel shows up to 40 columns per SIM, so every device of the table has to earn its width: the zebra is a brand tint rather than a second grey, headers collapse to a 16px icon plus a two-line label, and one cell stacks up to four values at descending contrast. All values here are the shipping panel's — nothing rounded, nothing invented.</p>
+
+<div class="panel">
+<div class="phead"><div class="t">SIM-карты</div><div class="n">Всего: 8</div><div class="chip">Выбрано: 2 <span style="color:#8A97A3;cursor:pointer">✕</span></div></div>
+<div class="tbl">
+<div class="r h">
+<div><input type="checkbox"></div>
+<div><img src="../assets/adminka/spec/nav.png" alt="" title="Группа">Группа ▾</div>
+<div><img src="../assets/adminka/qos/igoo.png" alt="" title="Качество">Статусы</div>
+<div>Номер<div class="sub">оператор</div></div>
+<div>Баланс<div class="sub">ОП</div></div>
+<div><img src="../assets/adminka/dongle1550.ico" alt="" title="Модем">Модем</div>
+<div><img src="../assets/adminka/rssi/rssi-4.ico" alt="" title="Сигнал">RSSI</div>
+<div>ACDL<div class="sub">DATT</div></div>
+<div>IMEI / IMSI</div>
+</div>
+
+<div class="r b"><div><input type="checkbox"></div>
+<div>101<div class="ico"><img src="../assets/adminka/play.png" title="в работе" alt=""><img src="../assets/adminka/day_work.png" title="рабочий день" alt=""></div></div>
+<div class="ico"><img src="../assets/adminka/qos/capok.png" title="капча пройдена" alt=""><img src="../assets/adminka/im/imb.png" title="мульти-сим B" alt=""><img src="../assets/adminka/spec/pre.png" title="предоплата" alt=""><img src="../assets/adminka/state_out.png" title="исходящий" alt=""><img src="../assets/adminka/qos/igoo.png" title="iGOO" alt=""><img src="../assets/adminka/napravleine/megafon_spb.ico" title="NS — МегаФон СПб" alt=""></div>
+<div>9219981122<div class="sub">MegaFon</div></div>
+<div>84.2<div class="sub2">312с назад</div><div class="sub">ОП: нет</div></div>
+<div class="ico"><img src="../assets/adminka/dongle1550.ico" alt=""> E1550</div>
+<div class="ico"><img src="../assets/adminka/rssi/rssi-3.ico" alt=""> −71dBm</div>
+<div>1.9<div class="sub2">0</div></div>
+<div class="mono">35782000112233<div class="sub2 mono">250017201029356</div></div></div>
+
+<div class="r b"><div><input type="checkbox"></div>
+<div>102<div class="ico"><img src="../assets/adminka/pause2.png" title="пауза" alt=""><img src="../assets/adminka/day_work.png" title="рабочий день" alt=""></div></div>
+<div class="ico"><img src="../assets/adminka/qos/capnew.png" title="новая капча" alt=""><img src="../assets/adminka/im/imn.ico" title="мульти-сим N" alt=""><img src="../assets/adminka/spec/may.png" title="MAY" alt=""><img src="../assets/adminka/state_wait.png" title="ожидание" alt=""><img src="../assets/adminka/qos/inor.png" title="iNOR" alt=""><img src="../assets/adminka/napravleine/beeline_spb.ico" title="BS — Билайн СПб" alt=""></div>
+<div>9037761234<div class="sub">Beeline</div></div>
+<div class="warn">12.4<div class="sub2">2ч назад</div></div>
+<div class="ico"><img src="../assets/adminka/dongle173.ico" alt=""> E173</div>
+<div class="ico"><img src="../assets/adminka/rssi/rssi-1.ico" alt=""> −103dBm</div>
+<div class="warn">0.8<div class="sub2">1</div></div>
+<div class="mono">86234500019922<div class="sub2 mono">250021401138821</div></div></div>
+
+<div class="r b sel"><div><input type="checkbox" checked></div>
+<div>510<div class="ico"><img src="../assets/adminka/blocked.png" title="заблокирована" alt=""></div></div>
+<div class="ico"><img src="../assets/adminka/qos/capfail.png" title="капча не пройдена" alt=""><img src="../assets/adminka/qos/iblo.png" title="BLO" alt=""><img src="../assets/adminka/napravleine/mts_spb.ico" title="SS — МТС СПб" alt=""><img src="../assets/adminka/state/simst/0.ico" title="SIM не готова" alt=""><img src="../assets/adminka/state/srvst/0.ico" title="нет сети" alt=""></div>
+<div>9111234567<div class="sub">MTS</div></div>
+<div>0<div class="sub2">03.07</div><div class="sub">ОП: до 30.07</div></div>
+<div class="ico"><img src="../assets/adminka/dongle1550.ico" alt=""> E1550</div>
+<div class="ico"><img src="../assets/adminka/rssi/rssi-0.ico" alt=""> −113dBm</div>
+<div>0<div class="warn">9</div></div>
+<div class="mono warn">86234500019955<div class="sub2 mono">250017201044452</div></div></div>
+
+<div class="r b"><div><input type="checkbox"></div>
+<div>333<div class="ico"><img src="../assets/adminka/high_datt.ico" title="автоблок: высокий DATT" alt=""></div></div>
+<div class="ico"><img src="../assets/adminka/qos/capok.png" alt=""><img src="../assets/adminka/im/imc.ico" alt=""><img src="../assets/adminka/spec/forwarding.png" title="форвардинг" alt=""><img src="../assets/adminka/state_in.png" title="входящий" alt=""><img src="../assets/adminka/qos/ivip.png" title="iVIP" alt=""><img src="../assets/adminka/napravleine/tele2_spb.ico" title="TS — Tele2 СПб" alt=""></div>
+<div>9506660011<div class="sub">Tele2</div></div>
+<div>240.5<div class="sub2">48с назад</div><div class="sub">ОП: можно</div></div>
+<div class="ico"><img src="../assets/adminka/dongle1550.ico" alt=""> E1550</div>
+<div class="ico"><img src="../assets/adminka/rssi/rssi-4.ico" alt=""> −59dBm</div>
+<div>2.4<div class="warn">12</div></div>
+<div class="mono">35782000998877<div class="sub2 mono">250020112233445</div></div></div>
+</div>
+</div>
+
+<h2>What makes it work</h2>
+<div class="two">
+<div class="card">
+<p><b>The zebra is a brand tint, not a grey.</b> One hue, three ascending strengths, so they stack instead of fighting: a selected odd row still reads as selected, and no second neutral enters the palette.</p>
+<div class="sw">
+<div style="background:var(--adm-row-even)">even<br>#FFFFFF</div>
+<div style="background:var(--adm-row-odd)">odd<br>0,91,234 / 3.5%</div>
+<div style="background:var(--adm-head-bg)">header<br>5%</div>
+<div style="background:var(--adm-row-sel)">selected<br>9%</div>
+</div>
+<p style="margin-top:12px">Tokens: <code>--adm-row-even</code>, <code>--adm-row-odd</code>, <code>--adm-head-bg</code>, <code>--adm-row-sel</code>. Separators are cool-grey and near-invisible on purpose: rows <code>--adm-row-line</code> 12%, header <code>--adm-head-line</code> 20%, panel edges <code>--adm-chrome-line</code> 14%.</p>
+</div>
+<div class="card">
+<p><b>Icon-only headers.</b> A 16px glyph above the label, plus an optional 10px second line, lets a 74px column carry a two-part name (<code>ACDL / DATT</code>). The glyph is the column's own status icon, so header and cells share one vocabulary.</p>
+<p><b>Stacked cells, descending contrast.</b> Up to four values in one cell, ranked by ink rather than by position: primary 12px <code>#303F49</code> → secondary 10px <code>#8A97A3</code> → tertiary 10px <code>#B6B6B6</code> → alarm 12px bold <code>#E5484D</code>. Identifiers switch to mono 11px so digits align.</p>
+<p><b>Icon stacks as a status column.</b> Six 16px marks in a 2px-gap row replace six columns of text; each carries a <code>title</code> with the raw code. Order is fixed — captcha, multi-SIM, spec flag, direction, quality, operator — so the eye reads position, not just picture.</p>
+<p><b>Group code drives the icon.</b> <code>100–299</code> working (play / pause / wake / sleep), <code>333</code> high DATT, <code>334</code> low ACDL, <code>335</code> balance block, <code>336</code> SIM blocked, <code>300+</code> low ACDL, <code>400+</code> low balance, <code>500+</code> blocked. The number stays visible next to it — the icon is redundancy, not a replacement.</p>
+</div>
+</div>
+
+<div class="card" style="margin-top:16px">
+<p><b>Density figures.</b> Cell padding <code>7px 6px</code>, header <code>8px 6px</code>, row height ~30px with a single line and ~46px with a stack. Grid is <code>display:grid</code> with explicit <code>grid-template-columns</code> + <code>min-width:max-content</code> and one horizontal scroller, so column widths stay identical between the header row and every body row without a <code>&lt;table&gt;</code>.</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,95 @@
+/* ── Ad-material frame kit ───────────────────────────────────────
+   Layer classes for the promo staging system. Geometry lives in
+   the frame data (ad-frames.js); this file only holds the plane
+   behaviour. Tokens come from ../styles.css > tokens/ad.css.      */
+
+.ad-board { margin: 0; padding: 34px; background: #E6EAEF; font-family: var(--font-family); display: flex; gap: 30px; align-items: flex-start; overflow-x: auto; }
+.ad-slot { flex: 0 0 auto; }
+.ad-slot > figcaption { font-size: 12px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: #7E8B96; margin: 0 0 10px 2px; }
+.ad-slot > figcaption span { font-weight: 400; letter-spacing: 0; text-transform: none; color: #A6B1BA; }
+
+/* the frame itself — plane 0 */
+.ad-frame { position: relative; overflow: hidden; background: var(--brand-gradient); color: var(--fg-1); transform-origin: top left; }
+.ad-frame * { box-sizing: border-box; }
+.ad-inner { position: absolute; left: 0; top: 0; transform-origin: top left; }
+
+/* plane 1 — tilted slabs */
+.ad-wedge { position: absolute; left: 0; top: 0; transform-origin: 0 0; background: #fff; z-index: var(--ad-plane-wedge); }
+.ad-tab { position: absolute; left: 0; top: 0; transform-origin: 0 0; background: var(--fg-1); z-index: var(--ad-plane-wedge); }
+
+/* plane 2 — copy */
+.ad-copy { position: absolute; z-index: var(--ad-plane-copy); }
+.ad-eyebrow { font-size: var(--ad-eyebrow); font-weight: 600; line-height: 100%; }
+.ad-headline { font-size: var(--ad-headline); font-weight: 700; line-height: 100%; text-transform: uppercase; text-wrap: pretty; }
+.ad-arrow { position: absolute; z-index: var(--ad-plane-copy); color: #fff; }
+
+/* plane 3 — device */
+.ad-device { position: absolute; z-index: var(--ad-plane-device); overflow: hidden; }
+.ad-device-shell { position: absolute; inset: 0; background-size: 100% 100%; background-repeat: no-repeat; }
+.ad-device-screen { position: absolute; overflow: hidden; }
+.ad-device-screen img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+/* macbook — built from the file's exact part geometry */
+.mb-lid { position: absolute; left: 0; top: 0; border-radius: 28px 28px 4px 4px; background: #1A202C; box-shadow: inset 0 0 0 2px #4A5568; }
+.mb-dark { position: absolute; border-radius: 22px; background: #000; }
+.mb-screen { position: absolute; overflow: hidden; }
+.mb-screen img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.mb-label { position: absolute; font-family: Inter, var(--font-family); font-size: 13px; font-weight: 600; text-align: center; line-height: .9; color: #A0AEC0; }
+.mb-base { position: absolute; border-radius: 2px; background: linear-gradient(90deg, #0D1012 0%, #CAD4DB 2.95%, #242729 6.25%, #A3ACB1 13.36%, #A3ACB1 86.6%, #242729 94.19%, #CAD4DB 97.13%, #0D1012 99.64%); }
+.mb-curve { position: absolute; background: linear-gradient(180deg, #7A7F83 0%, #0B0B0E 100%); clip-path: polygon(0 0, 100% 0, 97.5% 42%, 90.6% 100%, 9.2% 100%, 1.6% 30%); }
+.mb-groove { position: absolute; background: linear-gradient(90deg, #3C3C3C 9.86%, rgba(60,60,60,0) 35.92%, rgba(60,60,60,0) 64.08%, #444 91.93%); border-radius: 0 0 16px 16px; }
+.mb-shadow { position: absolute; border-radius: 50%; background: rgba(0,0,0,.55); filter: blur(6px); }
+
+/* plane 4 — the pulled-forward accent */
+.ad-front { position: absolute; z-index: var(--ad-plane-front); background: var(--surface); border-radius: var(--ad-front-radius); box-shadow: var(--ad-shadow-front); display: flex; align-items: center; justify-content: space-between; padding: var(--ad-front-pad); }
+.ad-front--pill { border-radius: 20px 36px 36px 20px; justify-content: flex-start; padding: 50px 80px 50px 50px; font-size: var(--ad-pill); font-weight: 600; line-height: 100%; white-space: nowrap; }
+.ad-front-lead { display: flex; align-items: center; gap: 28.848px; }
+.ad-icon { flex: 0 0 auto; width: 86.545px; height: 86.545px; border-radius: 21.636px; overflow: hidden; box-shadow: var(--ad-shadow-icon); background: var(--surface); display: flex; align-items: center; justify-content: center; }
+.ad-icon img { width: 100%; height: 100%; object-fit: cover; }
+.ad-icon--yt { background: #FF0000; }
+.ad-icon--yt svg { width: 34%; height: 34%; }
+.ad-front-title { font-size: var(--ad-card-title); font-weight: 400; line-height: 100%; white-space: nowrap; }
+.ad-front-meta { font-size: var(--ad-card-title); font-weight: 400; line-height: 100%; color: var(--fg-2); }
+.ad-check { flex: 0 0 auto; width: 86.548px; height: 86.548px; border-radius: 21.637px; background: var(--fg-1); display: flex; align-items: center; justify-content: center; }
+.ad-check svg { width: 52%; height: 52%; }
+.ad-check--off { background: #E4E7EA; }
+.ad-flag { flex: 0 0 auto; width: 86.545px; height: 86.545px; border-radius: 21.636px; overflow: hidden; box-shadow: var(--ad-shadow-icon); }
+.ad-dot { flex: 0 0 auto; width: 30px; height: 30px; border-radius: 50%; background: #2ECC71; margin-left: 30px; }
+
+/* desktop app pane — a front-plane surface, not a screen fill */
+.pane { position: absolute; z-index: var(--ad-plane-front); width: 390px; height: 726px; overflow: hidden; border-radius: 10px; background: #F8F9FA; box-shadow: var(--ad-shadow-front-strong); }
+.pane-bar { position: absolute; left: 0; top: 0; width: 390px; height: 34px; border-bottom: .5px solid #EAEAEA; }
+.pane-bar b { position: absolute; left: 71px; top: 10px; width: 248px; font-size: 14px; font-weight: 600; text-align: center; line-height: 100%; }
+.pane-dots { position: absolute; left: 10px; top: 12px; display: flex; gap: 8px; }
+.pane-dots i { width: 12px; height: 12px; border-radius: 50%; background: #D9DEE3; }
+.pane-tiles { position: absolute; left: 30px; top: 98px; width: 330px; height: 75px; display: flex; gap: 14px; }
+.pane-tile { flex: 1; background: #fff; border-radius: 12px; box-shadow: 0 2px 20px rgba(156,178,194,.18); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; }
+.pane-tile img { width: 18px; height: 18px; opacity: .85; }
+.pane-tile b { font-size: 15px; font-weight: 600; }
+.pane-tile span { font-size: 10px; color: var(--fg-2); }
+.pane-timer { position: absolute; left: 37px; top: 223px; width: 317px; font-size: 40px; font-weight: 600; text-align: center; line-height: 100%; }
+.pane-connect { position: absolute; left: 120px; top: 321px; width: 150px; height: 184px; }
+.pane-connect .btn { width: 150px; height: 150px; border-radius: 50%; background: var(--brand-gradient); box-shadow: 0 18px 40px var(--brand-glow); display: flex; align-items: center; justify-content: center; }
+.pane-connect .btn img { width: 56px; filter: brightness(0) invert(1); }
+.pane-connect .state { position: absolute; left: 0; top: 164px; width: 150px; height: 20px; font-size: 15px; text-align: center; color: var(--fg-2); }
+.pane-server { position: absolute; left: 30px; top: 545px; width: 330px; height: 75px; background: #fff; border-radius: 14px; box-shadow: 0 2px 20px rgba(156,178,194,.18); display: flex; align-items: center; gap: 14px; padding: 0 18px; }
+.pane-server .fl { width: 34px; height: 34px; border-radius: 9px; overflow: hidden; }
+.pane-server b { font-size: 16px; font-weight: 600; }
+.pane-server span { font-size: 11px; color: var(--fg-2); display: block; }
+.pane-tabbar { position: absolute; left: 0; top: 634px; width: 390px; height: 92px; background: #fff; border-top: .5px solid #EAEAEA; display: flex; align-items: flex-start; justify-content: space-around; padding-top: 18px; }
+.pane-tabbar img { width: 26px; height: 26px; }
+.pane-list { position: absolute; left: 30px; top: 46px; width: 330px; display: flex; flex-direction: column; gap: 10px; }
+.pane-row { height: 52px; background: #fff; border-radius: 14px; box-shadow: 0 2px 20px rgba(156,178,194,.14); display: flex; align-items: center; gap: 12px; padding: 0 16px; font-size: 15px; }
+.pane-row .fl, .pane-row .ic { width: 30px; height: 30px; border-radius: 8px; overflow: hidden; flex: 0 0 auto; }
+.pane-row .ic img { width: 100%; height: 100%; object-fit: cover; }
+.pane-row .ms { margin-left: auto; font-size: 13px; color: var(--fg-2); }
+.pane-row .cb { margin-left: auto; width: 26px; height: 26px; border-radius: 7px; background: #E4E7EA; }
+.pane-row .cb.on { background: var(--fg-1); }
+.pane-head { position: absolute; left: 0; top: 44px; width: 390px; text-align: center; font-size: 17px; font-weight: 600; }
+
+/* flags, drawn from stripes — no bitmaps needed */
+.fl-bg { background: linear-gradient(180deg, #fff 0 33.3%, #00966E 33.3% 66.6%, #D62612 66.6%); }
+.fl-be { background: linear-gradient(90deg, #000 0 33.3%, #FAE042 33.3% 66.6%, #ED2939 66.6%); }
+.fl-fr { background: linear-gradient(90deg, #002395 0 33.3%, #fff 33.3% 66.6%, #ED2939 66.6%); }
+.fl-de { background: linear-gradient(180deg, #000 0 33.3%, #DD0000 33.3% 66.6%, #FFCE00 66.6%); }
+.fl-tr { background: #E30A17; }

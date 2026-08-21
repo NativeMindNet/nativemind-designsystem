@@ -1,0 +1,55 @@
+<!-- @dsCard group="Web & Admin" viewport="1300x1500" name="Adminka icon set (GostSimBox)" subtitle="The original 16px .ico/.png set — primary iconography for status, quality and operator columns" -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+body{margin:0;padding:26px 30px;background:#F4F6F8;font-family:var(--font-family);color:var(--fg-1)}
+h1{font-size:26px;font-weight:700;margin:0 0 6px}
+.lede{font-size:14px;line-height:1.6;color:#5E6E7A;max-width:78ch;margin:0 0 18px}
+.bar{display:flex;align-items:center;gap:10px;margin-bottom:26px;font-size:13px;color:#7F8D98}
+.bar button{font:inherit;font-weight:600;color:var(--fg-1);background:#fff;border:1px solid #D8DEE4;border-radius:7px;padding:5px 12px;cursor:pointer}
+.bar button[aria-pressed="true"]{background:var(--fg-1);color:#fff;border-color:var(--fg-1)}
+h2{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#8A98A3;margin:26px 0 12px}
+.grid{display:flex;flex-wrap:wrap;gap:10px}
+.ic{background:#fff;border-radius:8px;box-shadow:0 1px 10px rgba(156,178,194,.22);padding:10px;min-width:84px;display:flex;flex-direction:column;align-items:center;gap:8px}
+.ic .box{display:flex;align-items:center;justify-content:center;height:var(--sz)}
+.ic img{width:var(--sz);height:var(--sz);image-rendering:pixelated;display:block}
+.ic code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10px;color:#7F8D98;word-break:break-all;text-align:center;line-height:1.3}
+.note{margin-top:34px;background:#fff;border-radius:10px;padding:18px 20px;font-size:13.5px;line-height:1.6;color:#465563;max-width:88ch}
+.note b{color:var(--fg-1)}
+.note code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;background:#EEF1F4;padding:1px 5px;border-radius:4px}
+.note ol{margin:10px 0 0;padding-left:20px}.note li{margin-bottom:7px}
+:root{--sz:32px}
+</style>
+</head>
+<body>
+<h1>Adminka icon set</h1>
+<p class="lede">The original GostSimBox glyphs. These are the primary iconography for every status, quality, operator and hardware column — each mark is individually drawn and reads at a glance in a dense table, which a generic icon font does not. Emoji are a failover only, for when a file is missing or the surface cannot serve images.</p>
+<div class="bar"><span>Render size</span><button data-sz="16">16 · 1×</button><button data-sz="32" aria-pressed="true">32 · 2×</button><button data-sz="48">48 · 3×</button><button data-sz="64">64 · 4×</button><span>— integer scale, <code style="font-family:ui-monospace,monospace">image-rendering: pixelated</code>: no blur added</span></div>
+<div id="sets"></div>
+<div class="note">
+<b>About resolution.</b> Every file is 16×16, drawn pixel by pixel in the 2010s. There is no hidden higher-resolution version inside them, so anything larger is a reconstruction. Three honest routes, in order of preference:
+<ol>
+<li><b>Integer upscale with nearest-neighbour</b> — <code>image-rendering: pixelated</code> at exactly 2×, 3× or 4× (32/48/64 px). Every original pixel becomes a clean square; nothing is invented and nothing is blurred. This is what the switcher above does and what the design system uses by default. Non-integer sizes (24px, 40px) resample and must be avoided.</li>
+<li><b>Manual vector redraw</b> — trace a glyph as SVG once, keeping the exact silhouette and palette. This is the only route to a genuinely sharp large icon. Worth doing for the ~20 glyphs that appear in headers and detail views; not worth it for 64 operator marks.</li>
+<li><b>Model upscaling</b> — an image model can enlarge a 16px sprite, but it invents detail and drifts off the original palette, so the icons stop being recognisably the same set. Only acceptable with a human review of every glyph.</li>
+</ol>
+Practical rule: keep the 16px originals as the source of truth, render at 16 or 32 in tables, 48 in detail views, and redraw as SVG only where a glyph carries a headline.
+</div>
+<script>
+const sets=[{"d":"state/simst","l":"SIM state (simst)","n":["0.ico","1.ico","16.ico","255.ico","4.ico"]},{"d":"state/srvst","l":"Network registration (srvst)","n":["0.ico","1.ico","112.ico","2.ico"]},{"d":"state/cfun","l":"Radio (cfun)","n":["4.ico","6.ico"]},{"d":"state/end_party","l":"Call ended by (end_party)","n":["-1.ico","1.ico","2.ico","3.ico"]},{"d":"state","l":"Call state","n":["-1.ico","state_active.png","state_dial.png","state_in.png","state_in_old.png","state_out.png","state_ring.png","state_sout.png","state_sout_in.ico","state_sout_out.ico","state_wait.png"]},{"d":"qos","l":"Number quality (QoS)","n":["capfail.png","capnew.png","capok.png","fast.ico","ibad.png","iblo.png","igoo.png","ine0.ico","inec.ico","inem.ico","inew.png","inor.png","inos.png","ipalevo.png","irob.png","ivip.png","ivip1.ico","ivip2.ico","never.png","slow.png","very.ico"]},{"d":"spec","l":"Special flags (spec)","n":["carousel.ico","forwarding.png","in_sound.png","in_wait.png","ivip.png","ivip1.ico","ivip2.ico","local.png","local2.png","mag.png","may.ico","may.png","mon.ico","nav.png","notvip.png","pos.png","pre.png"]},{"d":"recog_types","l":"Recognition types","n":["10.ico","100.png","110.ico","120.ico","20.png","30.png","50.png","90.ico","91.ico","92.ico"]},{"d":"rssi","l":"Signal strength (RSSI)","n":["rssi-0.ico","rssi-1.ico","rssi-2.ico","rssi-3.ico","rssi-4.ico","rssi.ico"]},{"d":"im","l":"IM presence","n":["ima.png","imb.png","imc.ico","imd.ico","ime.ico","imn.ico"]},{"d":"diagmode","l":"Diagnostic mode","n":["diagmode_done.png","diagmode_init.png","diagmode_log.png","diagmode_start.png","diagmode_update.png","diagmode_wait.png"]},{"d":"napravleine","l":"Operators & directions (направление)","n":["beeline.ico","beeline_msk.ico","beeline_ru.ico","beeline_spb.ico","dna.ico","elisa.ico","hz.ico","kievstar.ico","life_by.ico","megafon.ico","megafon_chel.ico","megafon_msk.ico","megafon_ru.ico","megafon_spb.ico","megafon_sz.ico","megafon_ural.ico","mts.ico","mts_by.ico","mts_msk.ico","mts_ru.ico","mts_spb.ico","mts_u.ico","proper_minsk.ico","proper_msk.ico","proper_spb.ico","rostel_spb.png","rostel_spb_gor.png","rostel_spb_mob.png","saunalahti.ico","sonera.ico","tele2_ru.ico","tele2_spb.ico","velcom_by.ico"]},{"d":"usb","l":"USB hubs & ports","n":["hub_16.ico","hub_dlink.ico","hub_hamma.ico","unknown.ico","usb_pci.ico","usb_port.ico"]},{"d":"tree","l":"Tree connectors","n":["down.ico","sub.ico","sub_last.ico"]},{"d":"","l":"Root set — balance, SMS, calls, dongles, days, playback","n":["backward.gif","blocked.png","blocked_balance.ico","calls.png","can_smsin.png","can_smsout.png","can_smsoutworld.png","clock.png","conn.png","day_holiday.png","day_work.png","dongle.png","dongle1550.ico","dongle173.ico","fas.png","fast.png","forward.gif","free.png","high_datt.ico","high_datt.png","imode.png","in_no.png","lock.png","logussd.png","low_acdl.ico","low_acdl.png","low_balance.png","msm.ico","need_in.png","need_sms.png","nospam.ico","outin.png","p-off.png","p-on.png","pause.png","pl2303.ico","play.png","power.png","rand.ico","rand.png","satt.png","simblocked.ico","sleep.png","sms_in.png","sms_out.png","spam.ico","stop.png","ussdsms.png","wake.png"]}];
+document.getElementById('sets').innerHTML=sets.filter(g=>g.n.length).map(g=>
+ '<section><h2>'+g.l+' <span style="font-weight:400;letter-spacing:0;text-transform:none;color:#B0BAC3">'+(g.d?'assets/adminka/'+g.d+'/':'assets/adminka/')+' · '+g.n.length+'</span></h2><div class="grid">'+
+ g.n.map(n=>{const p='../assets/adminka/'+(g.d?g.d+'/':'')+n;
+  return '<figure class="ic" style="margin:0"><div class="box"><img src="'+p+'" alt="'+n+'" title="'+n+'"></div><code>'+n+'</code></figure>';}).join('')+
+ '</div></section>').join('');
+document.querySelectorAll('.bar button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.bar button').forEach(x=>x.removeAttribute('aria-pressed'));
+  b.setAttribute('aria-pressed','true');
+  document.documentElement.style.setProperty('--sz',b.dataset.sz+'px');
+}));
+</script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!-- @dsCard group="Web & Admin" viewport="1300x1360" name="Icon density: 16/32/48 @1×/2×/3×" subtitle="DPR-aware resolution switching — every iconset asset is prepared in all three sizes, PNG pixel-for-pixel, failovers included" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+body{margin:0;padding:26px 30px;background:#F4F6F8;font-family:var(--font-family);color:var(--fg-1)}
+h1{font-size:26px;font-weight:700;margin:0 0 6px}
+.lede{font-size:14px;line-height:1.6;color:#5E6E7A;max-width:80ch;margin:0 0 24px}
+h2{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#8A98A3;margin:30px 0 12px}
+.card{background:#fff;border-radius:10px;box-shadow:0 1px 32px rgba(156,178,194,.10);padding:18px 20px}
+table{border-collapse:collapse;font-size:13.5px;width:100%}
+th{text-align:left;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8A98A3;padding:0 14px 8px 0;white-space:nowrap}
+td{padding:7px 14px 7px 0;border-top:1px solid #EDF0F3;font-variant-numeric:tabular-nums;color:#465563}
+td:first-child{font-weight:600;color:var(--fg-1)}
+tr.pri td{background:rgba(0,122,255,.05)}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px}
+pre{margin:0;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;line-height:1.65;color:#3B4855;overflow-x:auto}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.prose{font-size:13.5px;line-height:1.68;color:#465563;max-width:88ch}
+.prose p{margin:0 0 12px}.prose b{color:var(--fg-1)}
+.prose code,.card code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;background:#EEF1F4;padding:1px 5px;border-radius:4px}
+.spec{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.spec span{background:#EEF1F4;border-radius:6px;padding:5px 10px;font-size:12.5px;color:#465563}
+ul{margin:8px 0 0;padding-left:20px;font-size:13.5px;line-height:1.65;color:#465563}li{margin-bottom:6px}
+</style>
+</head>
+<body>
+<h1>Icon density</h1>
+<p class="lede">Icons have <b>one logical size</b>, not three. Every raster asset is prepared at 16×16, 32×32 and 48×48 in the same pass, and the runtime picks the bitmap that matches the device pixel ratio. The icon stays 16 logical px on screen everywhere; only its density changes.</p>
+
+<h2>Required export — every iconset, every glyph</h2>
+<div class="card">
+<table>
+<tr><th>UI size (logical px · dp/pt)</th><th>1× — DPR 1</th><th>2× — DPR 2 (Retina)</th><th>3× — DPR 3</th><th>Status</th></tr>
+<tr class="pri"><td>16</td><td>16 px</td><td>32 px</td><td>48 px</td><td>Mandatory for all icon assets</td></tr>
+<tr><td>20</td><td>20 px</td><td>40 px</td><td>60 px</td><td>Own triplet if used</td></tr>
+<tr><td>24</td><td>24 px</td><td>48 px</td><td>72 px</td><td>Own triplet if used</td></tr>
+<tr><td>32</td><td>32 px</td><td>64 px</td><td>96 px</td><td>Own triplet if used</td></tr>
+<tr><td>40</td><td>40 px</td><td>80 px</td><td>120 px</td><td>Own triplet if used</td></tr>
+<tr><td>48</td><td>48 px</td><td>96 px</td><td>144 px</td><td>Own triplet if used — TV / detail views</td></tr>
+</table>
+<p class="prose" style="margin:14px 0 0">The 16-logical-px row is the design-system default and the one every glyph must ship. A larger UI size is a <b>different asset</b> with its own three files — the 48 px file from the 16 px row is the @3× bitmap for a 16 px icon, not a 48 px icon.</p>
+</div>
+
+<h2>Markup</h2>
+<div class="cols">
+<div class="card"><pre>&lt;img
+  src="power-16.png"
+  srcset="power-16.png 1x,
+          power-32.png 2x,
+          power-48.png 3x"
+  width="16" height="16"
+  alt=""&gt;</pre>
+<p class="prose" style="margin:12px 0 0">Resolution switching via density descriptors. The browser loads the physical bitmap; the box stays 16 CSS px, so the PNG is pixel-for-pixel with no interpolation. Fixed <code>width</code>/<code>height</code> also prevents reflow.</p></div>
+<div class="card"><pre>/* failover keeps the same box */
+.ic{width:16px;height:16px;display:block}
+.ic--svg{width:16px;height:16px}   /* viewBox="0 0 16 16" */
+.ic--emoji{width:16px;height:16px;
+  font-size:16px;line-height:16px;
+  text-align:center}</pre>
+<p class="prose" style="margin:12px 0 0">An <code>onerror</code> failover is metrically identical to the PNG it replaces: same 16-logical-px box, same baseline, same optical weight. Nothing shifts when a file is missing.</p></div>
+</div>
+
+<h2>SVG and emoji failover — same typesizes</h2>
+<div class="card"><p class="prose" style="margin:0">Vectors can render at any size, which is exactly why they need the rule. An SVG failover is drawn on a <b>16-unit grid</b> (<code>viewBox="0 0 16 16"</code>, whole-unit coordinates, 1-unit strokes) and placed in a 16 logical px box — at DPR 2 and 3 it lands on 32 and 48 device px, the same grid as the PNG triplet. Emoji get the same treatment: fixed 16×16 box, <code>font-size:16px</code>, no inherited line-height. Only the three sizes 16 / 32 / 48 are legal render targets, whatever the source format.</p>
+<div class="spec"><span>Icon size = 16 logical px</span><span>Assets = 16/32/48 @1×/@2×/@3×</span><span>Rendering = native resolution, no upscaling</span><span>SVG viewBox = 16 units</span><span>Emoji box = 16×16</span></div>
+</div>
+
+<h2>Layout does not change with DPR</h2>
+<div class="card">
+<table>
+<tr><th>Element</th><th>Logical</th><th>@1×</th><th>@2×</th><th>@3×</th></tr>
+<tr><td>Row height</td><td>48</td><td>48 px</td><td>96 px</td><td>144 px</td></tr>
+<tr><td>Text</td><td>16</td><td>16 px</td><td>32 px</td><td>48 px</td></tr>
+<tr><td>Icon</td><td>24</td><td>24 px</td><td>48 px</td><td>72 px</td></tr>
+<tr><td>Left padding</td><td>16</td><td>16 px</td><td>32 px</td><td>48 px</td></tr>
+<tr><td>Gap</td><td>8</td><td>8 px</td><td>16 px</td><td>24 px</td></tr>
+</table>
+<p class="prose" style="margin:14px 0 0">Two independent layers. <b>Layout scaling</b> — logical px → device px, handled by the runtime; the designer never draws a separate Retina or TV mock. <b>Asset resolution switching</b> — which of the three bitmaps is fetched, decided by DPR. Row height, type size, spacing and gaps are authored once in logical units.</p>
+</div>
+
+<h2>Rules</h2>
+<div class="card"><ul>
+<li>Prepare 16 / 32 / 48 in the same pass. A glyph with only one size is not ready to ship.</li>
+<li>Never scale a PNG in CSS — no 20px, 24px, 40px render of the 16px set. Non-integer resampling is the one thing this system exists to prevent.</li>
+<li>The GostSimBox originals are true 16×16 art: their 32 and 48 are integer nearest-neighbour upscales (<code>image-rendering: pixelated</code>), not new drawings. Fugue ships real 32×32 and has 48×48 PSD sources — use the real density, no <code>pixelated</code>.</li>
+<li>TVs follow DPR, not panel resolution: a 4K set often reports a 1920×1080 viewport at DPR 2. Target the ratio, never “4K”.</li>
+<li>Large TV and detail surfaces get their own 48/96/144 triplet rather than an enlarged small icon.</li>
+</ul></div>
+</body>
+</html>

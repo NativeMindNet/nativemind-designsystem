@@ -1,0 +1,51 @@
+<!-- @dsCard group="Components" viewport="1400x1180" name="Figma kit — full family set" subtitle="All remaining Figma component families, materialized at their exact source geometry" -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<style>
+body{margin:0;padding:28px;background:var(--bg);font-family:var(--font-family)}
+h2{font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#8A98A3;margin:24px 0 12px}
+h2:first-child{margin-top:0}
+.grid{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-start}
+.cell{background:var(--surface);border-radius:var(--radius-md);box-shadow:var(--shadow-card);padding:14px;display:flex;flex-direction:column;gap:10px}
+.cell figcaption{font-size:10.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:#9AA7B1;order:2}
+.cell .stage{background:var(--bg);border-radius:8px;padding:10px;display:flex;align-items:center;justify-content:center;min-height:44px;overflow:hidden}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel">
+const NS = window.VPNclientUniversalDesignSystem_4d5632;
+const groups = [
+  ["Rows & items", ["ServerItem","ServerMain","InfoItem","SettingsItem","SwitchItem","AboutItem","ThemeItem","Data"]],
+  ["Actions & input", ["BtnMain","ButtonReset","InputSearch","Apps","Flags","Icon","Icon2"]],
+  ["Subscription & payment", ["Sub","Promo","Payment","PaymentItem","PaymentIcon","PayLogos"]],
+  ["Chrome", ["Top","Tabbar","TabbarMini","Push","StatusBarIPhone14Main","HomeBarIPhone14Main","HomeIndicatorIPhone","Battery","Network","Time","Location","Clock941"]],
+  ["Keyboard", ["KeyboardSuggestionIPhone","AlphabeticKeyboardIPhone"]],
+];
+function Cell({ name }) {
+  const C = NS[name];
+  return (
+    <figure className="cell" style={{ margin: 0 }}>
+      <div className="stage">{C ? <C/> : <span style={{fontSize:11,color:"var(--danger)"}}>missing</span>}</div>
+      <figcaption>{name}</figcaption>
+    </figure>
+  );
+}
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <>{groups.map(([title, names]) => (
+    <section key={title}>
+      <h2>{title}</h2>
+      <div className="grid">{names.map(n => <Cell key={n} name={n}/>)}</div>
+    </section>
+  ))}</>
+);
+</script>
+</body>
+</html>

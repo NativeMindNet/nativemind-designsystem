@@ -1,0 +1,101 @@
+/* ============================================================
+   NativeMind DS — Typography
+   Source of truth: lib/design/app_typography.dart (VPNclient-app
+   & taxlien-app). Native face is SF Pro Text (embedded via
+   tokens/fonts.css). The scale is discrete — eight roles, no
+   fluid sizing.
+   ============================================================ */
+
+:root {
+  --font-family: "SF Pro Text", -apple-system, BlinkMacSystemFont,
+                 "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* role : size / weight / line-height */
+  --t-timer-size:     40px;  --t-timer-weight:     700;  --t-timer-lh:     1.0; /* @kind other */
+  --t-title-size:     24px;  --t-title-weight:     600;  --t-title-lh:     1.15; /* @kind other */
+  --t-screen-size:    20px;  --t-screen-weight:    600;  --t-screen-lh:    1.2; /* @kind other */
+  --t-body-size:      17px;  --t-body-weight:      400;  --t-body-lh:      1.3; /* @kind other */
+  --t-button-size:    17px;  --t-button-weight:    500;  --t-button-lh:    1.0; /* @kind other */
+  --t-secondary-size: 15px;  --t-secondary-weight: 400;  --t-secondary-lh: 1.35; /* @kind other */
+  --t-label-size:     14px;  --t-label-weight:     500;  --t-label-lh:     1.0; /* @kind other */
+  --t-caption-size:   13px;  --t-caption-weight:   400;  --t-caption-lh:   1.3; /* @kind other */
+
+  /* Marketing / App Store display — SF Pro Text Heavy, big & tight. */
+  --t-display-size:   64px;  --t-display-weight:   800;  --t-display-lh:   1.0; /* @kind other */
+}
+
+html, body {
+  font-family: var(--font-family);
+  color: var(--fg-1);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* ── Type role classes ───────────────────────────────────────── */
+.t-display {
+  font-size: var(--t-display-size);
+  font-weight: var(--t-display-weight);
+  line-height: var(--t-display-lh);
+  letter-spacing: -0.02em;
+  color: var(--fg-1);
+}
+
+.t-timer {
+  font-size: var(--t-timer-size);
+  font-weight: var(--t-timer-weight);
+  line-height: var(--t-timer-lh);
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+  color: var(--fg-1);
+}
+
+.t-title {
+  font-size: var(--t-title-size);
+  font-weight: var(--t-title-weight);
+  line-height: var(--t-title-lh);
+  color: var(--fg-1);
+}
+
+.t-screen-title {
+  font-size: var(--t-screen-size);
+  font-weight: var(--t-screen-weight);
+  line-height: var(--t-screen-lh);
+  color: var(--fg-1);
+}
+
+.t-body {
+  font-size: var(--t-body-size);
+  font-weight: var(--t-body-weight);
+  line-height: var(--t-body-lh);
+  color: var(--fg-1);
+}
+
+.t-secondary {
+  font-size: var(--t-secondary-size);
+  font-weight: var(--t-secondary-weight);
+  line-height: var(--t-secondary-lh);
+  color: var(--fg-2);
+}
+
+.t-label {
+  font-size: var(--t-label-size);
+  font-weight: var(--t-label-weight);
+  line-height: var(--t-label-lh);
+  color: var(--fg-1);
+}
+
+.t-caption {
+  font-size: var(--t-caption-size);
+  font-weight: var(--t-caption-weight);
+  line-height: var(--t-caption-lh);
+  color: var(--fg-2);
+}
+
+.t-button {
+  font-size: var(--t-button-size);
+  font-weight: var(--t-button-weight);
+  line-height: var(--t-button-lh);
+  color: #fff;
+}
